@@ -1,289 +1,259 @@
-# VanGATE Existing Website Requirements Baseline
+# VanGATE 现有网站功能需求基线
 
-## 1. Document Information
+## 1. 文档说明
 
-| Item | Value |
+| 项目 | 内容 |
 | --- | --- |
-| Document type | Existing-system requirements baseline |
-| Source website | https://vangate.ca/ |
-| Analysis date | June 11, 2026 |
-| Status | Draft for customer validation |
-| Purpose | Record the functions and content currently exposed by the website before redesign |
+| 文档类型 | 现有网站功能需求基线 |
+| 网站地址 | https://vangate.ca/ |
+| 分析日期 | 2026年6月11日 |
+| 文档状态 | 待客户确认 |
+| 文档目的 | 记录现有网站已经提供的功能，作为后续沟通的现状依据 |
 
-This document describes the observable behavior of the existing public website and
-its WordPress administration capabilities. It is not yet the specification for the
-new website.
+本文件仅描述当前网站已经存在并可观察到的功能，不包含网站改版、
+技术升级、数据迁移或新增业务系统需求。
 
-### Evidence Labels
+### 需求状态
 
-- **Confirmed**: directly observed in the public website, source, HTTP response, or public API.
-- **Inferred**: strongly indicated by WordPress conventions or exposed metadata.
-- **To confirm**: requires access to WordPress Admin, hosting, database, or customer interviews.
+- **已确认**：可以从现有网站页面、公开源代码、HTTP响应或公开API直接确认。
+- **推定存在**：根据现有页面行为和WordPress标准能力可以合理判断，但仍需后台访问确认。
+- **待确认**：公开网站无法确认，需要客户或现有网站管理员补充信息。
 
-## 2. Business Purpose
+## 2. 网站定位
 
-The website presents VanGATE as a manufacturer and installer of automated entrance
-solutions for residential and commercial customers in British Columbia.
+现有网站用于展示VanGATE面向住宅及商业客户提供的自动门禁、闸门、
+车库门、工业门及相关制造、安装和服务能力。
 
-The existing website supports these primary business goals:
+网站目前承担以下功能：
 
-1. Explain VanGATE's products and services.
-2. Demonstrate completed work through images and project galleries.
-3. Build trust through company information, testimonials, and articles.
-4. Generate customer enquiries by contact form and telephone.
-5. Improve discovery through search-engine-optimized landing pages and articles.
+1. 介绍公司及其产品和服务。
+2. 展示产品、工程案例和图片。
+3. 发布公司新闻及行业文章。
+4. 展示客户评价，建立访客信任。
+5. 通过电话和联系表单接收客户咨询。
+6. 通过SEO及网站统计支持线上推广。
 
-## 3. User Roles
+## 3. 用户角色
 
-| Role | Existing capability |
-| --- | --- |
-| Public visitor | Browse pages, products, services, galleries, and news; submit an enquiry; call the company |
-| Content editor | Manage pages, articles, media, menus, and SEO metadata in WordPress Admin |
-| Website administrator | Manage users, themes, plugins, settings, forms, and security tools |
-
-Customer accounts, dealer accounts, employee portals, online ordering, and online
-payments were not observed.
-
-## 4. Public Website Requirements
-
-### 4.1 Global Navigation and Layout
-
-| ID | Requirement | Evidence |
+| 角色 | 当前功能 | 状态 |
 | --- | --- | --- |
-| PUB-001 | The website shall provide a desktop navigation header. | Confirmed |
-| PUB-002 | The website shall provide a mobile navigation menu. | Confirmed |
-| PUB-003 | The website shall display the VanGATE logo with a link to the home page. | Confirmed |
-| PUB-004 | The website shall provide persistent access to contact information and telephone actions. | Confirmed |
-| PUB-005 | The website shall provide a footer containing service, product, company, address, and telephone information. | Confirmed |
-| PUB-006 | The website shall provide links from navigation and footer menus to managed content. | Confirmed |
-| PUB-007 | The website shall include a back-to-top control on long pages. | Confirmed |
-| PUB-008 | The layout shall adapt to desktop, tablet, and mobile screen sizes. | Confirmed |
+| 网站访客 | 浏览网站内容、查看产品和服务、查看图库和新闻、提交咨询、拨打电话 | 已确认 |
+| 内容编辑人员 | 管理页面、文章、图片、菜单和SEO信息 | 推定存在 |
+| 网站管理员 | 管理用户、主题、插件、表单及网站设置 | 推定存在 |
 
-### 4.2 Home Page
+## 4. 公共网站功能
 
-| ID | Requirement | Evidence |
+### 4.1 全站导航与公共区域
+
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| HOM-001 | The home page shall introduce VanGATE's residential and commercial entrance solutions. | Confirmed |
-| HOM-002 | The home page shall provide prominent calls to contact or call the company. | Confirmed |
-| HOM-003 | The home page shall promote primary products and services. | Confirmed |
-| HOM-004 | The home page shall display selected project or gallery images. | Confirmed |
-| HOM-005 | Gallery images shall support an enlarged lightbox view. | Confirmed |
-| HOM-006 | The home page shall link to the full gallery. | Confirmed |
-| HOM-007 | The home page shall display at least one customer testimonial. | Confirmed |
-| HOM-008 | The home page shall display recent news or articles. | Confirmed |
-| HOM-009 | The home page shall link to the complete news section. | Confirmed |
-| HOM-010 | Sections may use scroll-triggered animations and image sliders. | Confirmed |
+| WEB-001 | 网站提供桌面端顶部导航。 | 已确认 |
+| WEB-002 | 网站提供移动端菜单。 | 已确认 |
+| WEB-003 | 网站显示VanGATE标志，并可返回首页。 | 已确认 |
+| WEB-004 | 网站提供产品、服务、公司介绍、新闻、图库和联系方式等内容入口。 | 已确认 |
+| WEB-005 | 网站提供可点击的联系电话。 | 已确认 |
+| WEB-006 | 页脚显示服务、产品、公司、地址和联系电话信息。 | 已确认 |
+| WEB-007 | 长页面提供返回顶部功能。 | 已确认 |
+| WEB-008 | 页面适配桌面、平板和手机屏幕。 | 已确认 |
 
-### 4.3 Products and Services
+### 4.2 首页
 
-| ID | Requirement | Evidence |
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| CAT-001 | The website shall organize offerings into product and service categories. | Confirmed |
-| CAT-002 | The website shall provide category landing pages. | Confirmed |
-| CAT-003 | The website shall provide detail pages for individual offerings where applicable. | Confirmed |
-| CAT-004 | Managed offerings shall support a title, description, images, category, and URL slug. | Inferred |
-| CAT-005 | Product and service pages shall provide a path to contact VanGATE. | Confirmed |
-| CAT-006 | The catalogue shall support commercial and residential content. | Confirmed |
+| HOM-001 | 首页介绍VanGATE的住宅和商业自动入口解决方案。 | 已确认 |
+| HOM-002 | 首页提供联系公司和拨打电话的主要行动入口。 | 已确认 |
+| HOM-003 | 首页展示主要产品和服务。 | 已确认 |
+| HOM-004 | 首页展示部分工程或图库图片。 | 已确认 |
+| HOM-005 | 访客可以放大查看图库图片。 | 已确认 |
+| HOM-006 | 首页提供进入完整图库的链接。 | 已确认 |
+| HOM-007 | 首页展示客户评价。 | 已确认 |
+| HOM-008 | 首页展示近期新闻或文章。 | 已确认 |
+| HOM-009 | 首页提供进入完整新闻列表的链接。 | 已确认 |
+| HOM-010 | 首页使用轮播、灯箱及滚动动画等展示效果。 | 已确认 |
 
-Observed product and service groups include:
+### 4.3 公司介绍
 
-- Commercial gates
-- Residential gates
-- Garage doors and operators
-- Gate operators
-- Gate accessories
-- Gate hardware
-- High-speed industrial doors
-- Waterjet cutting
-- Operator installation
-- Barrier and security systems
-- Service calls
-
-The current catalogue appears informational. Cart, checkout, inventory, shipping,
-and payment processing were not observed.
-
-### 4.4 Gallery and Media
-
-| ID | Requirement | Evidence |
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| GAL-001 | The website shall provide a gallery of completed work. | Confirmed |
-| GAL-002 | Gallery items shall display images in a responsive grid or collection. | Confirmed |
-| GAL-003 | Visitors shall be able to enlarge and navigate gallery images. | Confirmed |
-| GAL-004 | Administrators shall be able to upload and reuse images through the media library. | Confirmed |
-| GAL-005 | Gallery images should support descriptive alternative text. | Inferred |
-| GAL-006 | Gallery filtering or grouping requirements shall be confirmed with the customer. | To confirm |
+| COM-001 | 网站提供公司介绍页面。 | 已确认 |
+| COM-002 | 公司介绍内容说明VanGATE的业务定位和服务能力。 | 已确认 |
+| COM-003 | 公司相关页面提供联系公司的入口。 | 已确认 |
 
-### 4.5 News and Articles
+### 4.4 产品与服务目录
 
-| ID | Requirement | Evidence |
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| NEW-001 | The website shall provide a news or blog listing page. | Confirmed |
-| NEW-002 | Each article shall have a title, publication date, summary, image, and detail page. | Confirmed |
-| NEW-003 | The listing shall support pagination when the article count exceeds one page. | Confirmed |
-| NEW-004 | Administrators shall be able to create, edit, publish, and unpublish articles. | Confirmed |
-| NEW-005 | Article pages shall expose search-engine metadata. | Confirmed |
-| NEW-006 | Article categories, tags, authors, and comments shall be reviewed before migration. | To confirm |
+| CAT-001 | 网站将产品和服务按类别组织。 | 已确认 |
+| CAT-002 | 网站提供产品或服务分类页面。 | 已确认 |
+| CAT-003 | 网站提供具体产品或服务的介绍页面。 | 已确认 |
+| CAT-004 | 产品或服务内容包含名称、说明和图片。 | 已确认 |
+| CAT-005 | 产品或服务内容具有独立网址。 | 已确认 |
+| CAT-006 | 产品或服务页面提供联系VanGATE的入口。 | 已确认 |
+| CAT-007 | 产品目录同时覆盖住宅和商业应用。 | 已确认 |
+| CAT-008 | 后台可维护产品和服务的分类及内容。 | 推定存在 |
 
-### 4.6 Contact and Lead Generation
+现有网站中观察到的产品和服务类别包括：
 
-| ID | Requirement | Evidence |
+- Commercial Gates
+- Residential Gates
+- Garage Doors & Operators
+- Gate Operators
+- Gate Accessories
+- Gate Hardware
+- High-Speed Industrial Doors
+- Waterjet Cutting
+- Operator Installation
+- Barrier Systems / Security Solutions
+- Service Calls
+
+当前产品目录用于信息展示。现有网站未观察到购物车、在线结账、
+在线支付、库存或配送功能。
+
+### 4.5 图库
+
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| CON-001 | The website shall provide a contact page. | Confirmed |
-| CON-002 | Visitors shall be able to submit an enquiry form. | Confirmed |
-| CON-003 | The form shall validate required fields before submission. | Confirmed |
-| CON-004 | Successful form submissions shall be delivered to configured company recipients. | Inferred |
-| CON-005 | A successful submission shall trigger an analytics event. | Confirmed |
-| CON-006 | Telephone numbers shall be clickable on supported devices. | Confirmed |
-| CON-007 | The website shall display the company address. | Confirmed |
-| CON-008 | Form fields, recipients, spam protection, retention, and privacy consent shall be confirmed. | To confirm |
-| CON-009 | Lead storage in the website database or an external CRM shall be confirmed. | To confirm |
+| GAL-001 | 网站提供工程或产品图库。 | 已确认 |
+| GAL-002 | 图库以图片集合形式展示内容。 | 已确认 |
+| GAL-003 | 图库在不同屏幕尺寸下自适应显示。 | 已确认 |
+| GAL-004 | 访客可以放大图片并浏览前后图片。 | 已确认 |
+| GAL-005 | 后台可以上传并重复使用图片。 | 推定存在 |
+| GAL-006 | 后台可以维护图库内容。 | 待确认 |
 
-## 5. Content Management Requirements
+### 4.6 新闻与文章
 
-| ID | Requirement | Evidence |
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| CMS-001 | Authorized users shall sign in to WordPress Admin. | Confirmed |
-| CMS-002 | Administrators shall manage users and WordPress roles. | Confirmed |
-| CMS-003 | Editors shall manage pages and articles without editing source code where fields are exposed. | Confirmed |
-| CMS-004 | Editors shall upload, select, edit, and delete media assets. | Confirmed |
-| CMS-005 | Administrators shall manage navigation menus. | Confirmed |
-| CMS-006 | Editors shall manage SEO titles, descriptions, canonical URLs, and social metadata. | Confirmed |
-| CMS-007 | Administrators shall configure contact forms and email recipients. | Confirmed |
-| CMS-008 | The system shall provide preview, draft, publish, and revision capabilities. | Confirmed |
-| CMS-009 | The system shall preserve historical page and post revisions according to an agreed retention policy. | Confirmed / To confirm |
-| CMS-010 | Product, service, testimonial, and gallery editing workflows shall be audited in the existing admin. | To confirm |
+| NEW-001 | 网站提供新闻或文章列表。 | 已确认 |
+| NEW-002 | 新闻列表显示文章标题、日期、摘要和图片。 | 已确认 |
+| NEW-003 | 每篇文章提供独立详情页面。 | 已确认 |
+| NEW-004 | 新闻列表支持分页。 | 已确认 |
+| NEW-005 | 后台可以新建、编辑、发布和取消发布文章。 | 推定存在 |
+| NEW-006 | 文章页面包含用于搜索引擎展示的元信息。 | 已确认 |
+| NEW-007 | 文章分类、标签、作者和评论的实际使用方式需要后台确认。 | 待确认 |
 
-The existing home page uses a custom `page-home.php` template and returns no normal
-page body through the public API. Some home-page content may therefore be embedded
-in PHP or stored in custom settings rather than fully editable in the page editor.
+### 4.7 联系与客户咨询
 
-## 6. SEO, Analytics, and Marketing
-
-| ID | Requirement | Evidence |
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| MKT-001 | Public pages shall support unique SEO titles and meta descriptions. | Confirmed |
-| MKT-002 | Public pages shall support canonical URLs. | Confirmed |
-| MKT-003 | The website shall produce Open Graph and Twitter metadata. | Confirmed |
-| MKT-004 | The website shall produce structured data where appropriate. | Confirmed |
-| MKT-005 | The website shall provide XML sitemap support. | Inferred |
-| MKT-006 | The website shall support Google Analytics and Google Tag Manager. | Confirmed |
-| MKT-007 | Contact-form completion shall be measurable as a conversion event. | Confirmed |
-| MKT-008 | Existing URLs and valuable search rankings shall be preserved or redirected during migration. | Required for replacement |
-| MKT-009 | The ownership and current status of analytics, tag manager, and search console accounts shall be confirmed. | To confirm |
+| CON-001 | 网站提供联系页面。 | 已确认 |
+| CON-002 | 网站显示公司地址和联系电话。 | 已确认 |
+| CON-003 | 手机等支持的设备可以直接点击电话号码拨号。 | 已确认 |
+| CON-004 | 访客可以通过在线表单提交咨询。 | 已确认 |
+| CON-005 | 表单在提交前校验必填内容。 | 已确认 |
+| CON-006 | 表单提交成功后触发网站统计事件。 | 已确认 |
+| CON-007 | 表单提交内容通过邮件发送给指定收件人。 | 推定存在 |
+| CON-008 | 表单字段、收件人、垃圾信息防护和数据保存方式需要后台确认。 | 待确认 |
 
-## 7. Technical and Operational Baseline
+## 5. 内容管理后台功能
 
-| Area | Existing implementation |
-| --- | --- |
-| Web server | LiteSpeed |
-| Server-side platform | PHP 7.4.33 |
-| CMS | WordPress 6.9.4 |
-| Theme | Custom `vangate` theme |
-| Page builder | Elementor |
-| Front-end foundation | Bootstrap 4.5.3, custom CSS, jQuery |
-| Forms | Contact Form 7 |
-| SEO | Yoast SEO |
-| Security | Wordfence |
-| Media/UI libraries | Swiper, Slick, PhotoSwipe, Lity, WOW.js, Font Awesome |
-| Content API | WordPress REST API |
-| Database | MySQL or MariaDB, inferred from standard WordPress hosting |
-| Time zone | America/Vancouver |
+现有网站使用WordPress作为内容管理后台。
 
-### Hosting Reuse Constraint
-
-The customer wants to reuse the existing runtime environment. The replacement shall
-therefore remain compatible with the current WordPress/LiteSpeed hosting model
-unless the hosting audit proves that an upgrade or migration is mandatory.
-
-PHP 7.4 is end-of-life. Compatibility with a supported PHP version should be tested,
-and the hosting environment should preferably be upgraded before production launch.
-
-## 8. Non-Functional Requirements to Preserve or Define
-
-| ID | Requirement | Status |
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| NFR-001 | The website shall use HTTPS and redirect the `www` hostname consistently. | Existing behavior |
-| NFR-002 | Public pages shall be indexable unless explicitly marked otherwise. | Existing behavior |
-| NFR-003 | The website shall support current desktop and mobile browsers. | To define |
-| NFR-004 | Public pages shall meet agreed Core Web Vitals targets. | To define |
-| NFR-005 | The website shall meet an agreed WCAG accessibility level. | To define |
-| NFR-006 | Forms shall include spam and abuse protection. | To verify |
-| NFR-007 | Administrative operations shall require authenticated, authorized users. | Existing behavior |
-| NFR-008 | WordPress core, themes, and plugins shall have a controlled update process. | To define |
-| NFR-009 | Files and databases shall be backed up and restorable. | To verify |
-| NFR-010 | Production changes shall be deployable without editing live source files manually. | New requirement |
-| NFR-011 | Custom source code and deployment documentation shall be version-controlled in Git. | New requirement |
-| NFR-012 | Secrets, uploaded media, caches, backups, and production database dumps shall not be committed to Git. | New requirement |
+| CMS-001 | 授权用户可以登录WordPress管理后台。 | 推定存在 |
+| CMS-002 | 管理员可以管理后台用户及其角色。 | 推定存在 |
+| CMS-003 | 编辑人员可以管理普通页面。 | 推定存在 |
+| CMS-004 | 编辑人员可以管理新闻和文章。 | 推定存在 |
+| CMS-005 | 编辑人员可以上传、选择、编辑和删除媒体文件。 | 推定存在 |
+| CMS-006 | 管理员可以维护网站导航菜单。 | 推定存在 |
+| CMS-007 | 编辑人员可以维护页面和文章的SEO信息。 | 推定存在 |
+| CMS-008 | 管理员可以配置联系表单。 | 推定存在 |
+| CMS-009 | 内容支持草稿、预览、发布和历史修订。 | 推定存在 |
+| CMS-010 | 管理员可以管理WordPress主题、插件和网站设置。 | 推定存在 |
+| CMS-011 | 产品、服务、客户评价和图库在后台的具体维护方式需要确认。 | 待确认 |
 
-## 9. Existing Integrations
+现有首页使用自定义模板 `page-home.php`。公开API中的首页正文为空，
+因此首页部分内容可能写在主题模板、主题设置或自定义字段中。哪些首页
+内容可以由客户直接编辑，需要登录现有后台后确认。
 
-| Integration | Purpose | Status |
+## 6. SEO与网站统计
+
+| 编号 | 功能需求 | 状态 |
 | --- | --- | --- |
-| Google Analytics | Visitor and conversion measurement | Confirmed |
-| Google Tag Manager | Marketing and analytics tags | Confirmed |
-| Google Fonts | Web typography | Confirmed |
-| Contact Form 7 email delivery | Enquiry notification | Inferred |
-| Font Awesome kit | Icons | Confirmed |
-| Third-party JavaScript CDNs | UI libraries | Confirmed |
-| CRM | Lead/customer management | Not observed |
-| Payment provider | Online payment | Not observed |
-| Ecommerce platform | Cart and checkout | Not observed |
+| SEO-001 | 页面支持独立的SEO标题和描述。 | 已确认 |
+| SEO-002 | 页面输出Canonical URL。 | 已确认 |
+| SEO-003 | 页面输出Open Graph及Twitter分享信息。 | 已确认 |
+| SEO-004 | 网站输出结构化数据。 | 已确认 |
+| SEO-005 | 网站提供搜索引擎站点地图。 | 推定存在 |
+| SEO-006 | 网站接入Google Analytics。 | 已确认 |
+| SEO-007 | 网站接入Google Tag Manager。 | 已确认 |
+| SEO-008 | 联系表单提交作为统计事件记录。 | 已确认 |
+| SEO-009 | Google Analytics、Tag Manager和Search Console账号归属需要客户确认。 | 待确认 |
 
-## 10. Migration Requirements
+## 7. 当前技术运行环境
 
-1. Inventory all existing pages, posts, products, categories, forms, menus, media,
-   metadata, redirects, and integrations.
-2. Export and back up the production database and `wp-content` files before changes.
-3. Preserve approved content and media or document its replacement.
-4. Preserve existing public URLs wherever possible.
-5. Create permanent redirects for changed URLs.
-6. Retain or improve SEO metadata and structured data.
-7. Validate all enquiry forms and email delivery before launch.
-8. Validate analytics and conversion tracking before launch.
-9. Develop and test on a staging environment separate from production.
-10. Prepare a rollback procedure before production deployment.
+| 项目 | 当前实现 | 状态 |
+| --- | --- | --- |
+| Web服务器 | LiteSpeed | 已确认 |
+| 服务端语言 | PHP 7.4.33 | 已确认 |
+| 内容管理系统 | WordPress 6.9.4 | 已确认 |
+| 网站主题 | 自定义 `vangate` 主题 | 已确认 |
+| 页面编辑器 | Elementor | 已确认 |
+| 前端基础 | Bootstrap 4.5.3、自定义CSS、jQuery | 已确认 |
+| 联系表单 | Contact Form 7 | 已确认 |
+| SEO工具 | Yoast SEO | 已确认 |
+| 安全工具 | Wordfence | 已确认 |
+| 图片与交互组件 | Swiper、Slick、PhotoSwipe、Lity、WOW.js、Font Awesome | 已确认 |
+| 内容接口 | WordPress REST API | 已确认 |
+| 数据库 | MySQL或MariaDB | 推定存在 |
+| 网站时区 | America/Vancouver | 已确认 |
 
-## 11. Out of Scope in the Existing Website
+## 8. 当前外部服务与插件
 
-The following capabilities were not observed and must not be treated as existing
-requirements without customer approval:
+| 服务或插件 | 当前用途 | 状态 |
+| --- | --- | --- |
+| Google Analytics | 访问和转化统计 | 已确认 |
+| Google Tag Manager | 统计及营销标签管理 | 已确认 |
+| Google Fonts | 网站字体 | 已确认 |
+| Contact Form 7 | 联系表单 | 已确认 |
+| Yoast SEO | SEO信息及结构化数据 | 已确认 |
+| Wordfence | WordPress安全管理 | 已确认 |
+| Elementor | 页面内容编辑 | 已确认 |
+| Font Awesome | 网站图标 | 已确认 |
+| 第三方CDN | 加载字体和前端交互组件 | 已确认 |
+| 邮件服务 | 发送联系表单通知 | 推定存在 |
 
-- Customer registration and login
-- Dealer or contractor portal
-- Online quotation builder
-- Shopping cart, checkout, and online payment
-- Inventory and warehouse management
-- Installation project tracking
-- Service ticket management
-- Appointment scheduling
-- CRM synchronization
-- Multilingual content
-- Employee intranet
+## 9. 当前未观察到的功能
 
-These may become new requirements during discovery.
+以下功能没有在现有公共网站中观察到，因此不属于本需求基线：
 
-## 12. Customer Validation Questions
+- 客户注册和登录
+- 经销商或承包商门户
+- 在线报价工具
+- 购物车和在线支付
+- 库存和仓库管理
+- 安装项目进度管理
+- 售后工单管理
+- 在线预约
+- CRM同步
+- 多语言切换
+- 员工内部系统
 
-1. Which pages, products, services, and articles must be retained?
-2. Which areas can staff currently edit without developer assistance?
-3. What information is collected by each contact form, and who receives it?
-4. Are form submissions stored anywhere besides email?
-5. Are products managed through a custom WordPress post type or another plugin?
-6. Do testimonials and galleries have dedicated admin screens?
-7. Are any unpublished, private, or password-protected pages still required?
-8. Which user accounts and roles should be retained?
-9. Who owns the Google Analytics, Tag Manager, Search Console, and map accounts?
-10. What backup, staging, deployment, and rollback facilities does the host provide?
-11. Which PHP and database versions are available on the hosting plan?
-12. Does the new website need quotations, customer management, project tracking,
-    service requests, multilingual content, ecommerce, or other new business modules?
+本节只用于说明现状边界，不表示后续项目需要增加这些功能。
 
-## 13. Baseline Acceptance
+## 10. 现状确认事项
 
-This baseline is ready to become the approved existing-system scope when:
+以下问题只用于核实当前网站，不构成升级或新增需求：
 
-- The customer has reviewed the content and function inventory.
-- WordPress Admin and hosting access have been audited.
-- Unknown items are answered or explicitly deferred.
-- Retained, removed, redesigned, and newly requested capabilities are identified.
-- The customer approves the resulting scope in writing.
+1. 当前哪些页面和首页模块可以由客户自行编辑？
+2. 产品和服务使用WordPress自定义内容类型，还是由主题模板直接维护？
+3. 图库和客户评价是否具有独立后台管理入口？
+4. 当前联系表单包含哪些字段，邮件发送给哪些收件人？
+5. 联系表单记录是否保存在数据库中？
+6. 网站当前有哪些后台用户及角色？
+7. 是否存在未公开但仍在使用的页面或内容？
+8. 当前是否使用文章分类、标签、作者和评论功能？
+9. 当前统计、标签管理及搜索引擎账号由谁管理？
+10. 当前网站是否有定期备份及安全更新安排？
+
+## 11. 基线确认标准
+
+当满足以下条件后，本文件可作为现有网站功能基线：
+
+1. 客户确认现有前台页面和功能清单基本完整。
+2. 通过WordPress后台核实标记为“推定存在”的功能。
+3. 客户或网站管理员回答“待确认”事项。
+4. 客户确认本文件只代表现状，不代表后续升级范围。
+
+网站如何改版、保留、删除或新增功能，将在本基线确认后另行与客户讨论。
