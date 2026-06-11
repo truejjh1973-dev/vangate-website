@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VanGATE Website - PC Prototypes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Bebas+Neue&family=Source+Sans+3:wght@400;600&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0a0a0f;
+      color: white;
+    }
+
+    .demo-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .demo-header {
+      text-align: center;
+      padding: 40px 20px 60px;
+    }
+
+    .demo-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #fff 0%, #888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .demo-header p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .style-section {
+      margin-bottom: 100px;
+    }
+
+    .style-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .style-label h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .style-label .badge {
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .style-label .badge-modern { background: #1E3A5F; color: #0EA5E9; }
+    .style-label .badge-industrial { background: #F97316; }
+    .style-label .badge-vibrant { background: linear-gradient(135deg, #2563EB, #7C3AED); }
+
+    .pc-frame {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #333;
+      background: #111;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+
+    .browser-chrome {
+      background: #1a1a1a;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #333;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .browser-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .browser-dots span:nth-child(1) { background: #ff5f57; }
+    .browser-dots span:nth-child(2) { background: #ffbd2e; }
+    .browser-dots span:nth-child(3) { background: #28ca41; }
+
+    .browser-url {
+      flex: 1;
+      background: #0d0d0d;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      color: #888;
+      max-width: 400px;
+    }
+
+    .preview-content {
+      height: 800px;
+      overflow-y: auto;
+    }
+
+    /* ==================== */
+    /* STYLE 1: Modern Minimal - PC */
+    /* ==================== */
+    .style1 {
+      --primary: #1E3A5F;
+      --secondary: #F8FAFC;
+      --accent: #0EA5E9;
+      --text: #1E293B;
+      --muted: #64748B;
+      --surface: #FFFFFF;
+      --border: #E2E8F0;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    .style1 .navbar {
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 48px;
+    }
+
+    .style1 .nav-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .style1 .logo {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .style1 .logo span { color: var(--accent); }
+
+    .style1 .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .style1 .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .style1 .nav-links a:hover { color: var(--accent); }
+
+    .style1 .nav-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .style1 .nav-phone {
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .style1 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .style1 .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .style1 .btn-primary:hover {
+      background: #2d4a6f;
+    }
+
+    .style1 .hero {
+      background: linear-gradient(180deg, var(--secondary) 0%, var(--surface) 100%);
+      padding: 80px 48px;
+    }
+
+    .style1 .hero-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .style1 .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+
+    .style1 .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .style1 .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .style1 .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .style1 .hero-visual {
+      background: var(--surface);
+      border-radius: 16px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border: 1px solid var(--border);
+    }
+
+    .style1 .section {
+      padding: 80px 48px;
+    }
+
+    .style1 .section-header {
+      max-width: 1280px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .style1 .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .style1 .section-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .style1 .categories-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .style1 .category-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .style1 .category-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .style1 .category-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--secondary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 2rem;
+    }
+
+    .style1 .category-card h3 {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .style1 .category-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .style1 .products-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .style1 .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .style1 .product-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+
+    .style1 .product-image {
+      aspect-ratio: 4/3;
+      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .style1 .product-info {
+      padding: 20px;
+    }
+
+    .style1 .product-category {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .style1 .product-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 8px 0;
+    }
+
+    .style1 .product-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .style1 .product-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+
+    .style1 .cta-section {
+      background: var(--primary);
+      padding: 100px 48px;
+      text-align: center;
+    }
+
+    .style1 .cta-section h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .style1 .cta-section p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.2rem;
+      margin-bottom: 32px;
+    }
+
+    .style1 .cta-section .btn-primary {
+      background: white;
+      color: var(--primary);
+      padding: 14px 32px;
+      font-size: 1rem;
+    }
+
+    .style1 .footer {
+      background: var(--secondary);
+      padding: 80px 48px 32px;
+    }
+
+    .style1 .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .style1 .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .style1 .footer-brand p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .style1 .footer-links h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .style1 .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .style1 .footer-links a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .style1 .footer-links a:hover { color: var(--accent); }
+
+    .style1 .footer-bottom {
+      max-width: 1280px;
+      margin: 48px auto 0;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ==================== */
+    /* STYLE 2: Industrial - PC */
+    /* ==================== */
+    .style2 {
+      --primary: #F97316;
+      --secondary: #18181B;
+      --surface: #27272A;
+      --surface-2: #3F3F46;
+      --text: #FAFAFA;
+      --muted: #A1A1AA;
+      --border: #3F3F46;
+      --accent: #FBBF24;
+      --font-heading: 'Bebas Neue', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif;
+    }
+
+    .style2 .navbar {
+      position: sticky;
+      top: 0;
+      background: var(--secondary);
+      border-bottom: 3px solid var(--primary);
+      z-index: 100;
+      padding: 0 48px;
+    }
+
+    .style2 .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .style2 .logo {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .style2 .logo span { color: var(--primary); }
+
+    .style2 .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .style2 .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .style2 .nav-links a:hover { color: var(--primary); }
+
+    .style2 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .style2 .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .style2 .btn-primary:hover {
+      background: #ea580c;
+    }
+
+    .style2 .hero {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--surface) 100%);
+      padding: 80px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .style2 .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 50%;
+      height: 200%;
+      background: var(--primary);
+      opacity: 0.08;
+      transform: skewX(-15deg);
+    }
+
+    .style2 .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .style2 .hero-tag {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 6px 16px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    .style2 .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      font-weight: 400;
+      color: white;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .style2 .hero h1 span { color: var(--primary); }
+
+    .style2 .hero p {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .style2 .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .style2 .hero-visual {
+      background: var(--surface);
+      border-radius: 8px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border: 1px solid var(--border);
+    }
+
+    .style2 .stats-bar {
+      background: var(--primary);
+      padding: 32px 48px;
+    }
+
+    .style2 .stats-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      text-align: center;
+    }
+
+    .style2 .stat-item h3 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .style2 .stat-item p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .style2 .section {
+      padding: 80px 48px;
+      background: var(--secondary);
+    }
+
+    .style2 .section-header {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+
+    .style2 .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .style2 .section-header h2 span { color: var(--primary); }
+
+    .style2 .section-header p {
+      font-family: var(--font-body);
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .style2 .categories-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .style2 .category-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .style2 .category-card:hover {
+      border-color: var(--primary);
+      background: var(--surface-2);
+    }
+
+    .style2 .category-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+
+    .style2 .category-card h3 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    .style2 .category-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .style2 .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .style2 .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .style2 .product-image {
+      aspect-ratio: 4/3;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .style2 .product-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .style2 .product-info {
+      padding: 20px;
+    }
+
+    .style2 .product-card h3 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: white;
+      margin: 12px 0 8px;
+      text-transform: uppercase;
+    }
+
+    .style2 .product-price {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    .style2 .cta-section {
+      background: var(--primary);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .style2 .cta-section h2 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .style2 .cta-section p {
+      font-family: var(--font-body);
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      font-size: 1.1rem;
+    }
+
+    .style2 .footer {
+      background: var(--secondary);
+      padding: 80px 48px 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .style2 .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .style2 .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .style2 .footer-brand p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .style2 .footer-links h4 {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    .style2 .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .style2 .footer-links a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .style2 .footer-links a:hover { color: white; }
+
+    .style2 .footer-bottom {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ==================== */
+    /* STYLE 3: Vibrant - PC */
+    /* ==================== */
+    .style3 {
+      --primary: #2563EB;
+      --secondary: #DC2626;
+      --accent: #10B981;
+      --neutral: #F1F5F9;
+      --text: #0F172A;
+      --muted: #64748B;
+      --surface: #FFFFFF;
+      --gradient: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+      --gradient-alt: linear-gradient(135deg, #DC2626 0%, #F97316 100%);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    .style3 .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0 48px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .style3 .nav-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .style3 .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .style3 .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    .style3 .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .style3 .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .style3 .nav-links a:hover { color: var(--primary); }
+
+    .style3 .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .style3 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .style3 .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .style3 .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    .style3 .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .style3 .features-bar {
+      background: var(--surface);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .style3 .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .style3 .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--neutral);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .style3 .feature-item span {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .style3 .hero {
+      padding: 60px 48px 80px;
+      background: var(--neutral);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .style3 .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0.03;
+      transform: skewX(-5deg);
+    }
+
+    .style3 .hero-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .style3 .hero-pills {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .style3 .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .style3 .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .style3 .hero h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .style3 .hero p {
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .style3 .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .style3 .hero-visual {
+      background: var(--surface);
+      border-radius: 20px;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+    }
+
+    .style3 .section {
+      padding: 80px 48px;
+    }
+
+    .style3 .section-header {
+      max-width: 1280px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .style3 .section-label {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .style3 .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .style3 .section-header p {
+      font-family: var(--font-body);
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .style3 .categories-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .style3 .category-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .style3 .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .style3 .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+    }
+
+    .style3 .category-card:hover::before {
+      opacity: 1;
+    }
+
+    .style3 .category-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--neutral);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 16px;
+    }
+
+    .style3 .category-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .style3 .category-card p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .style3 .products-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .style3 .product-card {
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .style3 .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(37, 99, 235, 0.15);
+    }
+
+    .style3 .product-image {
+      aspect-ratio: 4/3;
+      background: var(--neutral);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+
+    .style3 .product-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--gradient-alt);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .style3 .product-wishlist {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: var(--surface);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .style3 .product-info {
+      padding: 20px;
+    }
+
+    .style3 .product-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .style3 .product-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .style3 .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .style3 .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .style3 .product-price {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .style3 .product-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .style3 .add-cart-btn {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .style3 .add-cart-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .style3 .cta-section {
+      background: var(--gradient);
+      padding: 100px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .style3 .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .style3 .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .style3 .cta-section h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .style3 .cta-section p {
+      font-family: var(--font-body);
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      margin-bottom: 32px;
+    }
+
+    .style3 .cta-section .btn-primary {
+      background: white;
+      color: var(--primary);
+      padding: 14px 32px;
+      font-size: 1rem;
+    }
+
+    .style3 .footer {
+      background: var(--text);
+      padding: 80px 48px 32px;
+    }
+
+    .style3 .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .style3 .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .style3 .footer-brand .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .style3 .footer-brand p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .style3 .footer-links h4 {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .style3 .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .style3 .footer-links a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .style3 .footer-links a:hover { color: white; }
+
+    .style3 .footer-bottom {
+      max-width: 1280px;
+      margin: 48px auto 0;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .frame-label {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <div class="demo-header">
+      <h1>VanGATE Website - PC Desktop Prototypes</h1>
+      <p>三种设计风格的桌面端完整原型预览，1440px 宽度最佳显示</p>
+    </div>
+
+    <!-- Style 1: Modern Minimal - PC -->
+    <div class="style-section">
+      <div class="style-label">
+        <h2>风格一：现代极简 (Modern Minimal)</h2>
+        <span class="badge badge-modern">Clean & Professional</span>
+      </div>
+      <div class="pc-frame">
+        <div class="browser-chrome">
+          <div class="browser-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="browser-url">vangate.ca</div>
+        </div>
+        <div class="preview-content">
+          <div class="style1">
+            <!-- Navigation -->
+            <nav class="navbar">
+              <div class="nav-content">
+                <a href="#" class="logo">Van<span>GATE</span></a>
+                <ul class="nav-links">
+                  <li><a href="#">Products</a></li>
+                  <li><a href="#">Categories</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                  <a href="#" class="nav-phone">📞 (604) 270-6888</a>
+                  <a href="#" class="btn btn-primary">Get Quote</a>
+                </div>
+              </div>
+            </nav>
+
+            <!-- Hero -->
+            <section class="hero">
+              <div class="hero-content">
+                <div>
+                  <div class="hero-badge">
+                    ⭐ Trusted by 10,000+ Customers
+                  </div>
+                  <h1>Your Trusted Partner for Auto Parts</h1>
+                  <p>Discover our comprehensive catalog of automotive parts, accessories, and equipment. Quality guaranteed with fast shipping across North America.</p>
+                  <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">🛒 Shop Now</a>
+                    <a href="#" class="btn" style="background: transparent; color: var(--primary); border: 1.5px solid var(--border);">Get Quote</a>
+                  </div>
+                </div>
+                <div class="hero-visual">🚗</div>
+              </div>
+            </section>
+
+            <!-- Categories -->
+            <section class="section">
+              <div class="section-header">
+                <h2>Shop by Category</h2>
+                <p>Find exactly what you need</p>
+              </div>
+              <div class="categories-grid">
+                <a href="#" class="category-card">
+                  <div class="category-icon">🔧</div>
+                  <h3>Engine Parts</h3>
+                  <p>2,400+ items</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛞</div>
+                  <h3>Wheels & Tires</h3>
+                  <p>1,800+ items</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">⚡</div>
+                  <h3>Electrical</h3>
+                  <p>950+ items</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛢️</div>
+                  <h3>Fluids & Oil</h3>
+                  <p>600+ items</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛑</div>
+                  <h3>Brakes</h3>
+                  <p>1,200+ items</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">📦</div>
+                  <h3>Shop Supplies</h3>
+                  <p>1,100+ items</p>
+                </a>
+              </div>
+            </section>
+
+            <!-- Products -->
+            <section class="section" style="background: var(--secondary);">
+              <div class="section-header">
+                <h2>Popular Products</h2>
+                <p>Best sellers this month</p>
+              </div>
+              <div class="products-grid">
+                <div class="product-card">
+                  <div class="product-image">🛞</div>
+                  <div class="product-info">
+                    <span class="product-category">Wheels</span>
+                    <h3>Alloy Wheel 17"</h3>
+                    <div class="product-price">$189.99 <span>$249.99</span></div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">🔋</div>
+                  <div class="product-info">
+                    <span class="product-category">Electrical</span>
+                    <h3>Premium Battery</h3>
+                    <div class="product-price">$159.99</div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">🛢️</div>
+                  <div class="product-info">
+                    <span class="product-category">Fluids</span>
+                    <h3>Synthetic Oil 5W-30</h3>
+                    <div class="product-price">$42.99 <span>$54.99</span></div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">🛑</div>
+                  <div class="product-info">
+                    <span class="product-category">Brakes</span>
+                    <h3>Brake Pad Set</h3>
+                    <div class="product-price">$79.99</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section">
+              <h2>Ready to Get Started?</h2>
+              <p>Contact our team for personalized assistance</p>
+              <a href="#" class="btn btn-primary">Contact Us</a>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+              <div class="footer-content">
+                <div class="footer-brand">
+                  <h3 class="logo">Van<span>GATE</span></h3>
+                  <p>Your trusted partner for automotive parts and equipment since 2010.</p>
+                </div>
+                <div class="footer-links">
+                  <h4>Products</h4>
+                  <ul>
+                    <li><a href="#">All Categories</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Clearance</a></li>
+                  </ul>
+                </div>
+                <div class="footer-links">
+                  <h4>Support</h4>
+                  <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                  </ul>
+                </div>
+                <div class="footer-links">
+                  <h4>Company</h4>
+                  <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Partners</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                © 2026 VanGATE. All rights reserved. | Richmond, BC, Canada
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <p class="frame-label">Modern Minimal - Desktop Preview (1440px)</p>
+    </div>
+
+    <!-- Style 2: Industrial - PC -->
+    <div class="style-section">
+      <div class="style-label">
+        <h2>风格二：工业专业 (Industrial Professional)</h2>
+        <span class="badge badge-industrial">Heavy-Duty & Bold</span>
+      </div>
+      <div class="pc-frame">
+        <div class="browser-chrome">
+          <div class="browser-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="browser-url">vangate.ca</div>
+        </div>
+        <div class="preview-content">
+          <div class="style2">
+            <!-- Navigation -->
+            <nav class="navbar">
+              <div class="nav-content">
+                <a href="#" class="logo">VAN<span>GATE</span></a>
+                <ul class="nav-links">
+                  <li><a href="#">Parts</a></li>
+                  <li><a href="#">Equipment</a></li>
+                  <li><a href="#">Tools</a></li>
+                  <li><a href="#">Fleet</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary">Get Quote</a>
+              </div>
+            </nav>
+
+            <!-- Hero -->
+            <section class="hero">
+              <div class="hero-content">
+                <div>
+                  <span class="hero-tag">Industrial Quality</span>
+                  <h1>Powering Your <span>Operations</span></h1>
+                  <p>Professional-grade auto parts and equipment for repair shops, dealers, and fleet managers. Built to perform, priced to compete.</p>
+                  <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Get Quote</a>
+                    <a href="#" class="btn" style="background: transparent; color: white; border: 2px solid var(--surface-2);">View Catalog</a>
+                  </div>
+                </div>
+                <div class="hero-visual">⚙️</div>
+              </div>
+            </section>
+
+            <!-- Stats -->
+            <div class="stats-bar">
+              <div class="stats-content">
+                <div class="stat-item">
+                  <h3>15+</h3>
+                  <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                  <h3>50K+</h3>
+                  <p>Products</p>
+                </div>
+                <div class="stat-item">
+                  <h3>2K+</h3>
+                  <p>Clients</p>
+                </div>
+                <div class="stat-item">
+                  <h3>24/7</h3>
+                  <p>Support</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <section class="section">
+              <div class="section-header">
+                <h2>Shop <span>Categories</span></h2>
+                <p>Everything you need for automotive repair</p>
+              </div>
+              <div class="categories-grid">
+                <a href="#" class="category-card">
+                  <div class="category-icon">⚙️</div>
+                  <div>
+                    <h3>Engine Components</h3>
+                    <p>2,400+ SKUs</p>
+                  </div>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛑</div>
+                  <div>
+                    <h3>Brake Systems</h3>
+                    <p>1,200+ SKUs</p>
+                  </div>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">⚡</div>
+                  <div>
+                    <h3>Electrical</h3>
+                    <p>890+ SKUs</p>
+                  </div>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🔧</div>
+                  <div>
+                    <h3>Tools & Equipment</h3>
+                    <p>1,500+ SKUs</p>
+                  </div>
+                </a>
+              </div>
+            </section>
+
+            <!-- Products -->
+            <section class="section" style="background: var(--surface);">
+              <div class="section-header">
+                <h2>Featured <span>Products</span></h2>
+                <p>Top picks for professionals</p>
+              </div>
+              <div class="products-grid">
+                <div class="product-card">
+                  <div class="product-image">🔧</div>
+                  <div class="product-info">
+                    <span class="product-badge">Best Seller</span>
+                    <h3>PRO LIFT JACK 3-TON</h3>
+                    <div class="product-price">$449.00</div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">🔩</div>
+                  <div class="product-info">
+                    <span class="product-badge">Bulk Deal</span>
+                    <h3>FASTENER ASSORTMENT</h3>
+                    <div class="product-price">$189.00</div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">💨</div>
+                  <div class="product-info">
+                    <span class="product-badge">New</span>
+                    <h3>AIR COMPRESSOR 50GAL</h3>
+                    <div class="product-price">$899.00</div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">🔌</div>
+                  <div class="product-info">
+                    <span class="product-badge">Clearance</span>
+                    <h3>DIAGNOSTIC SCAN TOOL</h3>
+                    <div class="product-price">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section">
+              <h2>Ready to Order?</h2>
+              <p>Open a commercial account today</p>
+              <a href="#" class="btn btn-primary">Apply for Account</a>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+              <div class="footer-content">
+                <div class="footer-brand">
+                  <h3 class="logo">VAN<span>GATE</span></h3>
+                  <p>Industrial auto parts supplier serving North America since 2010. Commercial accounts welcome.</p>
+                </div>
+                <div class="footer-links">
+                  <h4>Products</h4>
+                  <ul>
+                    <li><a href="#">Parts Catalog</a></li>
+                    <li><a href="#">Equipment</a></li>
+                    <li><a href="#">Tools</a></li>
+                    <li><a href="#">Fleet</a></li>
+                  </ul>
+                </div>
+                <div class="footer-links">
+                  <h4>Account</h4>
+                  <ul>
+                    <li><a href="#">Open Account</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Bulk Orders</a></li>
+                    <li><a href="#">Support</a></li>
+                  </ul>
+                </div>
+                <div class="footer-links">
+                  <h4>Resources</h4>
+                  <ul>
+                    <li><a href="#">Tech Support</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Training</a></li>
+                    <li><a href="#">Downloads</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                © 2026 VanGATE Industrial Supply. All rights reserved.
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <p class="frame-label">Industrial Professional - Desktop Preview (1440px)</p>
+    </div>
+
+    <!-- Style 3: Vibrant - PC -->
+    <div class="style-section">
+      <div class="style-label">
+        <h2>风格三：活力现代 (Vibrant Contemporary)</h2>
+        <span class="badge badge-vibrant">Bold & Dynamic</span>
+      </div>
+      <div class="pc-frame">
+        <div class="browser-chrome">
+          <div class="browser-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="browser-url">vangate.ca</div>
+        </div>
+        <div class="preview-content">
+          <div class="style3">
+            <!-- Navigation -->
+            <nav class="navbar">
+              <div class="nav-content">
+                <a href="#" class="logo">
+                  <span class="logo-icon">🚗</span>
+                  VanGATE
+                </a>
+                <ul class="nav-links">
+                  <li><a href="#">Shop</a></li>
+                  <li><a href="#">Categories</a></li>
+                  <li><a href="#">Deals</a></li>
+                  <li><a href="#">Track Order</a></li>
+                  <li><a href="#">Help</a></li>
+                </ul>
+                <div class="nav-actions">
+                  <a href="#" class="btn btn-secondary">Sign In</a>
+                  <a href="#" class="btn btn-primary">Shop Now</a>
+                </div>
+              </div>
+            </nav>
+
+            <!-- Features -->
+            <div class="features-bar">
+              <div class="feature-item">
+                <span class="feature-icon">🚚</span>
+                <span>Free Shipping</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">↩️</span>
+                <span>Easy Returns</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <span>Authentic Parts</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">💬</span>
+                <span>24/7 Support</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">🏆</span>
+                <span>Price Match</span>
+              </div>
+            </div>
+
+            <!-- Hero -->
+            <section class="hero">
+              <div class="hero-content">
+                <div>
+                  <div class="hero-pills">
+                    <span class="hero-pill">⭐ 4.9★ Rating</span>
+                    <span class="hero-pill">🔥 Hot Deals</span>
+                  </div>
+                  <h1>Drive Your Style with <span>Quality Parts</span></h1>
+                  <p>The ultimate destination for automotive parts, accessories, and equipment. Shop smarter with our curated selection and unbeatable prices.</p>
+                  <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">
+                      Shop Now
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#" class="btn btn-secondary">View Deals</a>
+                  </div>
+                </div>
+                <div class="hero-visual">🚙</div>
+              </div>
+            </section>
+
+            <!-- Categories -->
+            <section class="section">
+              <div class="section-header">
+                <span class="section-label">Browse Categories</span>
+                <h2>Find Your Parts</h2>
+                <p>Explore our extensive catalog</p>
+              </div>
+              <div class="categories-grid">
+                <a href="#" class="category-card">
+                  <div class="category-icon">🔧</div>
+                  <h3>Engine Parts</h3>
+                  <p>Premium quality</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛞</div>
+                  <h3>Wheels & Tires</h3>
+                  <p>All brands</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">⚡</div>
+                  <h3>Batteries</h3>
+                  <p>Long lasting</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛢️</div>
+                  <h3>Oil & Fluids</h3>
+                  <p>Best sellers</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">🛑</div>
+                  <h3>Brakes</h3>
+                  <p>Safety first</p>
+                </a>
+                <a href="#" class="category-card">
+                  <div class="category-icon">💡</div>
+                  <h3>Lighting</h3>
+                  <p>LED & more</p>
+                </a>
+              </div>
+            </section>
+
+            <!-- Products -->
+            <section class="section" style="background: var(--neutral);">
+              <div class="section-header">
+                <span class="section-label">Trending Now</span>
+                <h2>Hot Deals</h2>
+                <p>Limited time offers</p>
+              </div>
+              <div class="products-grid">
+                <div class="product-card">
+                  <div class="product-image">
+                    <span class="product-tag">-30%</span>
+                    <button class="product-wishlist">♥</button>
+                    🛞</div>
+                  <div class="product-info">
+                    <h3>Performance Tires Set</h3>
+                    <div class="product-meta">
+                      <span class="product-rating">⭐ 4.8 (124)</span>
+                    </div>
+                    <div class="product-price-row">
+                      <span class="product-price">$599 <span>$859</span></span>
+                      <button class="add-cart-btn">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">
+                    <span class="product-tag">New</span>
+                    <button class="product-wishlist">♥</button>
+                    🔋</div>
+                  <div class="product-info">
+                    <h3>EV Car Battery Pack</h3>
+                    <div class="product-meta">
+                      <span class="product-rating">⭐ 4.9 (89)</span>
+                    </div>
+                    <div class="product-price-row">
+                      <span class="product-price">$899</span>
+                      <button class="add-cart-btn">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">
+                    <span class="product-tag">-25%</span>
+                    <button class="product-wishlist">♥</button>
+                    🛑</div>
+                  <div class="product-info">
+                    <h3>Ceramic Brake Pads</h3>
+                    <div class="product-meta">
+                      <span class="product-rating">⭐ 4.7 (203)</span>
+                    </div>
+                    <div class="product-price-row">
+                      <span class="product-price">$89 <span>$119</span></span>
+                      <button class="add-cart-btn">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-image">
+                    <button class="product-wishlist">♥</button>
+                    💡</div>
+                  <div class="product-info">
+                    <h3>LED Headlight Kit</h3>
+                    <div class="product-meta">
+                      <span class="product-rating">⭐ 4.6 (156)</span>
+                    </div>
+                    <div class="product-price-row">
+                      <span class="product-price">$149</span>
+                      <button class="add-cart-btn">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section">
+              <div class="cta-content">
+                <h2>Join 50,000+ Happy Customers</h2>
+                <p>Create an account for exclusive deals and faster checkout</p>
+                <a href="#" class="btn btn-primary">
+                  Get Started Free
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+              <div class="footer-content">
+                <div class="footer-brand">
+                  <h3>
+                    <span class="logo-icon">🚗</span>
+                    VanGATE
+                  </h3>
+                  <p>Your trusted online destination for automotive parts and accessories. Quality parts, competitive prices, fast shipping.</p>
+                </div>
+                <div class="footer-links">
+                  <h4>Shop</h4>
+                  <ul>
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                  </ul>
+                </div>
+                <div class="footer-links">
+                  <h4>Help</h4>
+                  <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                  </ul>
+                </div>
+                <div class="footer-links">
+                  <h4>Account</h4>
+                  <ul>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Settings</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                © 2026 VanGATE. Built for drivers, by drivers.
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <p class="frame-label">Vibrant Contemporary - Desktop Preview (1440px)</p>
+    </div>
+
+  </div>
+</body>
+</html>

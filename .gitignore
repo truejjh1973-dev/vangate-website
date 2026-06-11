@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Generated presentation and build artifacts
+outputs/
+deliverables/
+
+# Local caches
+.cache/
+*.tmp
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
