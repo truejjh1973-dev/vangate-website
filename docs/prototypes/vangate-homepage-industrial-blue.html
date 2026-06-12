@@ -113,6 +113,102 @@
     .nav-links a:hover { color: var(--primary); }
     .nav-links a:hover::after { width: 60%; }
 
+    /* ========== DROPDOWN MENU ========== */
+    .nav-links .has-dropdown {
+      position: relative;
+    }
+
+    .nav-links .has-dropdown > a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links .has-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s;
+    }
+
+    .nav-links .has-dropdown:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      min-width: 240px;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+    }
+
+    .nav-links .has-dropdown:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown li {
+      list-style: none;
+    }
+
+    .nav-dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.2s;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .nav-dropdown a:hover {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    .nav-dropdown a .dropdown-icon {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-dropdown .dropdown-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 0;
+    }
+
+    .nav-dropdown .dropdown-header {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 12px 20px 6px;
+    }
+
     .nav-actions {
       display: flex;
       align-items: center;
@@ -129,6 +225,8 @@
       align-items: center;
       gap: 8px;
       transition: color 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-phone:hover { color: var(--accent); }
@@ -1436,9 +1534,10 @@
   </style>
   <!-- Content - embedded directly -->
   <script>
-    const siteData = {"company":{"name":"VanGATE","fullName":"VanGATE Manufacturing and Automation","tagline":"Engineered Door & Gate Systems","taglineFull":"Superior Door & Gate Systems • Engineered Precision • Full In-House CNC Fabrication","phone":"(604) 938-3588","phoneAlt":"(604) 370-0988","phoneRaw":"6049383588","email":"info@vangate.ca","address":"130-12820 Clarke Pl, Richmond, BC V6V 2H1","copyright":"2026","description":"Focused on creating commercial and residential automatic entrance solutions, VanGATE Manufacturing and Automation provides comprehensive design, manufacturing, and installation services that are tailored to suit the needs of each individual customer."},"navigation":{"links":[{"label":"Solutions","href":"#"},{"label":"Custom Manufacturing","href":"#"},{"label":"Projects","href":"#"},{"label":"About","href":"#"},{"label":"Resources","href":"#"},{"label":"Contact","href":"#"}],"cta":{"label":"Get Quote","href":"#"}},"hero":{"tag":"Serving Industrial, Commercial & Residential","title":"Fully Integrated Gate & Door Manufacturer","subtitle":"From Engineering to Installation — Everything Built In-House. At VanGATE, we deliver fully integrated in-house engineering, fabrication, and automation capabilities. Serving Residential, Commercial, and Industrial clients across British Columbia.","ctas":[{"label":"Residential Solutions","href":"#","primary":true},{"label":"Commercial & Industrial","href":"#","primary":false}],"stats":[{"value":"20+","label":"Years Experience"},{"value":"1000+","label":"Projects Completed"},{"value":"100%","label":"In-House Manufacturing"}],"badge":"Licensed & Insured","rating":{"value":"5-Star Rating","source":"Google Reviews"}},"segments":{"header":{"title":"Solutions For Every Need","subtitle":"Whether you're a homeowner or a facility manager, we have the right solution for you"},"items":[{"id":"residential","icon":"home","title":"Residential","description":"Focused on creating residential automatic entrance solutions. Enhance your home's security and curb appeal with premium overhead garage doors, door-in-door garage doors, residential gates, spiral roll-up doors, and professional automation services.","items":["Overhead Garage Doors","Door-In-Door Garage Doors","Residential Gates","Spiral Roll-Up Doors","Gate Automation","Service & Repair"],"ctas":[{"label":"Get a Quote","href":"#","primary":true},{"label":"View Products","href":"#","primary":false}]},{"id":"commercial","icon":"building","title":"Commercial & Industrial","description":"High-performance commercial and industrial door systems designed for reliability, security, and maximum efficiency. From sectional doors to high-speed doors, rolling steel doors, parking gates, barrier systems, and dock equipment.","items":["Sectional Doors","High-Speed Doors","Rolling Steel Doors","Parking Gates","Barrier Systems","Dock Equipment"],"ctas":[{"label":"Request Quote","href":"#","primary":true},{"label":"View Products","href":"#","primary":false}]},{"id":"lift","icon":"elevator","title":"Lift & Rotate","description":"Advanced vertical transportation solutions for residential and commercial applications. From home elevators and compact lifts to hydraulic lift platforms, vehicle lift platforms, and turntables — engineered for safety and reliability.","items":["Home Elevator","Compact Lifts","Hydraulic Lift Platforms","Vehicle Lift Platforms","Turntables"],"ctas":[{"label":"Learn More","href":"#","primary":true},{"label":"Contact Us","href":"#","primary":false}]},{"id":"cnc","icon":"factory","title":"Advanced CNC Manufacturing","description":"State-of-the-art precision manufacturing with full in-house CNC capabilities. From laser cutting and waterjet cutting to CNC bending, routing, laser welding, and custom fabrication — delivering engineering precision for every project.","items":["Laser Cutting","Waterjet Cutting","CNC Press Brake & Bending","CNC Routing","Laser Welding","Custom Fabrication"],"ctas":[{"label":"Our Capabilities","href":"#","primary":true},{"label":"Request Quote","href":"#","primary":false}]}]},"whyUs":{"header":{"title":"Why Choose Us","description":"VanGATE is Western Canada's fully integrated gate and door manufacturer. From initial engineering to final installation, every step is handled by our team — ensuring quality, accountability, and seamless project delivery."},"items":[{"icon":"factory","title":"Vertical Integration","description":"Engineering, fabrication, and installation — all under one roof"},{"icon":"settings","title":"Custom Solutions","description":"Tailored designs to meet your specific requirements"},{"icon":"check","title":"Certified Quality","description":"Industry certifications and safety standards met"},{"icon":"wrench","title":"Service & Support","description":"24/7 emergency repairs, maintenance, and ongoing support"}]},"projects":{"header":{"title":"Featured Projects","cta":{"label":"View All Projects →","href":"#"}},"items":[{"badge":"Commercial","title":"Metro Vancouver Warehouse","description":"High-speed industrial doors and automated loading dock systems for a 50,000 sq ft distribution center.","meta":[{"label":"Industry","value":"Logistics"},{"label":"Scope","value":"12 Units"}]},{"badge":"Industrial","title":"Richmond Manufacturing Plant","description":"Custom security gates and access control systems with integrated surveillance for a food processing facility.","meta":[{"label":"Industry","value":"Manufacturing"},{"label":"Scope","value":"8 Units"}]},{"badge":"Residential","title":"West Vancouver Estate","description":"Custom automated driveway gate with intercom system and smartphone control integration.","meta":[{"label":"Industry","value":"Luxury Home"},{"label":"Scope","value":"1 Unit"}]}]},"trust":{"header":{"title":"Trusted by Clients","subtitle":"For over 20 years, VanGATE has been providing engineered gate and access solutions throughout the Greater Vancouver area."},"rating":{"score":"4.9","source":"Google Reviews"},"logos":["Industrial","Commercial","Residential","Logistics","Manufacturing"]},"cta":{"title":"Ready to Start Your Project?","subtitle":"Get a free consultation and quote. Our team is ready to help you find the perfect solution.","ctas":[{"label":"Request a Quote","href":"#","primary":true},{"label":"Call (604) 938-3588","href":"tel:6049383588","primary":false}]},"footer":{"about":"Western Canada's fully integrated gate and door manufacturer. From Engineering to Installation — Everything Built In-House.","columns":[{"title":"Solutions","links":[{"label":"Residential","href":"#"},{"label":"Commercial","href":"#"},{"label":"Industrial","href":"#"},{"label":"Custom Manufacturing","href":"#"}]},{"title":"Company","links":[{"label":"About Us","href":"#"},{"label":"Why Choose Us","href":"#"},{"label":"Projects","href":"#"},{"label":"Careers","href":"#"}]},{"title":"Resources","links":[{"label":"Blog","href":"#"},{"label":"FAQs","href":"#"},{"label":"Downloads","href":"#"},{"label":"Contact","href":"#"}]}],"social":[{"platform":"LinkedIn","href":"#"},{"platform":"Facebook","href":"#"},{"platform":"Instagram","href":"#"}]}};
+    const siteData = {"company":{"name":"VanGATE","fullName":"VanGATE Manufacturing and Automation","tagline":"Engineered Door & Gate Systems","taglineFull":"Superior Door & Gate Systems • Engineered Precision • Full In-House CNC Fabrication","phone":"(604) 938-3588","phoneAlt":"(604) 370-0988","phoneRaw":"6049383588","email":"info@vangate.ca","address":"130-12820 Clarke Pl, Richmond, BC V6V 2H1","copyright":"2026","description":"Focused on creating commercial and residential automatic entrance solutions, VanGATE Manufacturing and Automation provides comprehensive design, manufacturing, and installation services that are tailored to suit the needs of each individual customer."},"navigation":{"links":[{"label":"Solutions","href":"#","dropdown":[{"label":"Residential","href":"#","icon":"home"},{"label":"Commercial","href":"#","icon":"building"},{"label":"Industrial","href":"#","icon":"factory"},{"divider":true},{"label":"Lift & Rotate","href":"#","icon":"elevator"},{"label":"CNC Manufacturing","href":"#","icon":"settings"}]},{"label":"Products","href":"#","dropdown":[{"label":"Gate Operators","href":"#","icon":"zap"},{"label":"Access Control","href":"#","icon":"lock"},{"label":"Parking Gates","href":"#","icon":"car"},{"label":"High-Speed Doors","href":"#","icon":"wind"},{"label":"Dock Equipment","href":"#","icon":"truck"},{"divider":true},{"label":"View All Products","href":"#","icon":"arrow-right"}]},{"label":"Services","href":"#","dropdown":[{"label":"Custom Manufacturing","href":"#","icon":"tool"},{"label":"Installation","href":"#","icon":"wrench"},{"label":"Repair & Maintenance","href":"#","icon":"settings"},{"label":"Emergency Service","href":"#","icon":"alert-circle"}]},{"label":"Projects","href":"#"},{"label":"About","href":"#","dropdown":[{"label":"About Us","href":"#","icon":"info"},{"label":"Why Choose Us","href":"#","icon":"check-circle"},{"label":"Our Team","href":"#","icon":"users"},{"label":"Careers","href":"#","icon":"briefcase"}]},{"label":"Resources","href":"#","dropdown":[{"label":"Blog","href":"#","icon":"file-text"},{"label":"FAQs","href":"#","icon":"help-circle"},{"label":"Case Studies","href":"#","icon":"book-open"},{"label":"Downloads","href":"#","icon":"download"}]}],"cta":{"label":"Get Quote","href":"#"}},"hero":{"tag":"Serving Industrial, Commercial & Residential","title":"Fully Integrated Gate & Door Manufacturer","subtitle":"From Engineering to Installation — Everything Built In-House. At VanGATE, we deliver fully integrated in-house engineering, fabrication, and automation capabilities. Serving Residential, Commercial, and Industrial clients across British Columbia.","ctas":[{"label":"Residential Solutions","href":"#","primary":true},{"label":"Commercial & Industrial","href":"#","primary":false}],"stats":[{"value":"20+","label":"Years Experience"},{"value":"1000+","label":"Projects Completed"},{"value":"100%","label":"In-House Manufacturing"}],"badge":"Licensed & Insured","rating":{"value":"5-Star Rating","source":"Google Reviews"}},"segments":{"header":{"title":"Solutions For Every Need","subtitle":"Whether you're a homeowner or a facility manager, we have the right solution for you"},"items":[{"id":"residential","icon":"home","title":"Residential","description":"Focused on creating residential automatic entrance solutions. Enhance your home's security and curb appeal with premium overhead garage doors, door-in-door garage doors, residential gates, spiral roll-up doors, and professional automation services.","items":["Overhead Garage Doors","Door-In-Door Garage Doors","Residential Gates","Spiral Roll-Up Doors","Gate Automation","Service & Repair"],"ctas":[{"label":"Get a Quote","href":"#","primary":true},{"label":"View Products","href":"#","primary":false}]},{"id":"commercial","icon":"building","title":"Commercial & Industrial","description":"High-performance commercial and industrial door systems designed for reliability, security, and maximum efficiency. From sectional doors to high-speed doors, rolling steel doors, parking gates, barrier systems, and dock equipment.","items":["Sectional Doors","High-Speed Doors","Rolling Steel Doors","Parking Gates","Barrier Systems","Dock Equipment"],"ctas":[{"label":"Request Quote","href":"#","primary":true},{"label":"View Products","href":"#","primary":false}]},{"id":"lift","icon":"elevator","title":"Lift & Rotate","description":"Advanced vertical transportation solutions for residential and commercial applications. From home elevators and compact lifts to hydraulic lift platforms, vehicle lift platforms, and turntables — engineered for safety and reliability.","items":["Home Elevator","Compact Lifts","Hydraulic Lift Platforms","Vehicle Lift Platforms","Turntables"],"ctas":[{"label":"Learn More","href":"#","primary":true},{"label":"Contact Us","href":"#","primary":false}]},{"id":"cnc","icon":"factory","title":"Advanced CNC Manufacturing","description":"State-of-the-art precision manufacturing with full in-house CNC capabilities. From laser cutting and waterjet cutting to CNC bending, routing, laser welding, and custom fabrication — delivering engineering precision for every project.","items":["Laser Cutting","Waterjet Cutting","CNC Press Brake & Bending","CNC Routing","Laser Welding","Custom Fabrication"],"ctas":[{"label":"Our Capabilities","href":"#","primary":true},{"label":"Request Quote","href":"#","primary":false}]}]},"whyUs":{"header":{"title":"Why Choose Us","description":"VanGATE is Western Canada's fully integrated gate and door manufacturer. From initial engineering to final installation, every step is handled by our team — ensuring quality, accountability, and seamless project delivery."},"items":[{"icon":"factory","title":"Vertical Integration","description":"Engineering, fabrication, and installation — all under one roof"},{"icon":"settings","title":"Custom Solutions","description":"Tailored designs to meet your specific requirements"},{"icon":"check","title":"Certified Quality","description":"Industry certifications and safety standards met"},{"icon":"wrench","title":"Service & Support","description":"24/7 emergency repairs, maintenance, and ongoing support"}]},"projects":{"header":{"title":"Featured Projects","cta":{"label":"View All Projects →","href":"#"}},"items":[{"badge":"Commercial","title":"Metro Vancouver Warehouse","description":"High-speed industrial doors and automated loading dock systems for a 50,000 sq ft distribution center.","meta":[{"label":"Industry","value":"Logistics"},{"label":"Scope","value":"12 Units"}]},{"badge":"Industrial","title":"Richmond Manufacturing Plant","description":"Custom security gates and access control systems with integrated surveillance for a food processing facility.","meta":[{"label":"Industry","value":"Manufacturing"},{"label":"Scope","value":"8 Units"}]},{"badge":"Residential","title":"West Vancouver Estate","description":"Custom automated driveway gate with intercom system and smartphone control integration.","meta":[{"label":"Industry","value":"Luxury Home"},{"label":"Scope","value":"1 Unit"}]}]},"trust":{"header":{"title":"Trusted by Clients","subtitle":"For over 20 years, VanGATE has been providing engineered gate and access solutions throughout the Greater Vancouver area."},"rating":{"score":"4.9","source":"Google Reviews"},"logos":["Industrial","Commercial","Residential","Logistics","Manufacturing"]},"cta":{"title":"Ready to Start Your Project?","subtitle":"Get a free consultation and quote. Our team is ready to help you find the perfect solution.","ctas":[{"label":"Request a Quote","href":"#","primary":true},{"label":"Call (604) 938-3588","href":"tel:6049383588","primary":false}]},"footer":{"about":"Western Canada's fully integrated gate and door manufacturer. From Engineering to Installation — Everything Built In-House.","columns":[{"title":"Solutions","links":[{"label":"Residential","href":"#"},{"label":"Commercial","href":"#"},{"label":"Industrial","href":"#"},{"label":"Custom Manufacturing","href":"#"}]},{"title":"Company","links":[{"label":"About Us","href":"#"},{"label":"Why Choose Us","href":"#"},{"label":"Projects","href":"#"},{"label":"Careers","href":"#"}]},{"title":"Resources","links":[{"label":"Blog","href":"#"},{"label":"FAQs","href":"#"},{"label":"Downloads","href":"#"},{"label":"Contact","href":"#"}]}],"social":[{"platform":"LinkedIn","href":"#"},{"platform":"Facebook","href":"#"},{"platform":"Instagram","href":"#"}]}};
 
     var segmentIcons = {'home':'🏠','building':'🏢','elevator':'🛗','factory':'🏭'};
+    var dropdownIcons = {'home':'🏠','building':'🏢','elevator':'🛗','factory':'🏭','zap':'⚡','lock':'🔒','car':'🚗','wind':'💨','truck':'🚚','tool':'🔧','wrench':'🔧','settings':'⚙️','alert-circle':'🚨','info':'ℹ️','check-circle':'✅','users':'👥','briefcase':'💼','file-text':'📄','help-circle':'❓','book-open':'📖','download':'⬇️','arrow-right':'→'};
 
     function renderContent(data) {
       // Company info - update page title
@@ -1447,6 +1546,15 @@
       // Navigation
       var navLinks = document.querySelector('.nav-links');
       navLinks.innerHTML = data.navigation.links.map(function(link) {
+        if (link.dropdown && link.dropdown.length > 0) {
+          var dropdownItems = link.dropdown.map(function(item) {
+            if (item.divider) {
+              return '<li class="dropdown-divider"></li>';
+            }
+            return '<li><a href="' + item.href + '"><span class="dropdown-icon">' + (dropdownIcons[item.icon] || '▸') + '</span>' + item.label + '</a></li>';
+          }).join('');
+          return '<li class="has-dropdown"><a href="' + link.href + '">' + link.label + '</a><ul class="nav-dropdown">' + dropdownItems + '</ul></li>';
+        }
         return '<li><a href="' + link.href + '">' + link.label + '</a></li>';
       }).join('');
 
