@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VanGATE - Western Canada's Gate & Door Manufacturer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit"> <!-- Force webkit rendering for QQ Browser -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
@@ -2470,7 +2472,151 @@
         opacity: 1;
       }
     }
+
+    /* ========== QQ BROWSER / WECHAT COMPATIBILITY ========== */
+    /* QQ Browser and WeChat built-in browser fixes */
+
+    /* Disable backdrop-filter for browsers that don't support it well */
+    @supports not (-webkit-backdrop-filter: blur(10px)) {
+      .navbar,
+      .mobile-nav,
+      .nav-dropdown,
+      .hero-carousel-nav {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(15, 23, 42, 0.99);
+      }
+    }
+
+    /* QQ Browser flexbox fix */
+    .nav-content,
+    .nav-actions,
+    .hero-content,
+    .hero-buttons,
+    .hero-stats,
+    .mobile-nav-content,
+    .segment-grid,
+    .segment-cta,
+    .whyus-grid,
+    .projects-grid,
+    .partners-grid,
+    .footer-content,
+    .footer-bottom {
+      display: -webkit-flex;
+      display: flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+    }
+
+    /* Grid fallback for older browsers */
+    .hero-content,
+    .segment-grid,
+    .whyus-grid,
+    .projects-grid,
+    .partners-grid,
+    .footer-content {
+      display: grid;
+      display: -webkit-grid;
+    }
+
+    /* CSS Variables fallback for QQ Browser */
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --primary-light: #3B82F6;
+      --secondary: #0F172A;
+      --surface: #1E293B;
+      --surface-2: #334155;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --border: #334155;
+      --accent: #60A5FA;
+      --success: #10B981;
+    }
+
+    /* Fix for vh unit issues in mobile browser */
+    .hero {
+      min-height: 600px;
+    }
+
+    /* Transform3d hack for hardware acceleration in QQ Browser */
+    .hero-carousel-track,
+    .hero-carousel-slide,
+    .testimonials-track,
+    .testimonial-card {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* Fix for font rendering in QQ Browser */
+    body,
+    .hero h1,
+    .hero-subtitle,
+    .segment-card h3,
+    .btn {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Fix for overflow-x scrolling in QQ Browser */
+    html {
+      -ms-overflow-style: scrollbar;
+      overflow-x: hidden;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Touch action for better scroll performance */
+    .mobile-nav,
+    .hero-carousel,
+    .testimonials-carousel {
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+    }
+
+    /* GPU acceleration hints for mobile */
+    .hero-bg-pattern,
+    .hero-grid-lines {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
   </style>
+
+  <!-- QQ Browser / WeChat Compatibility -->
+  <script>
+    // QQ Browser and WeChat X5 kernel compatibility
+    (function() {
+      var ua = navigator.userAgent;
+      var isQQBrowser = ua.indexOf('MQQBrowser') > -1;
+      var isWeChat = ua.indexOf('MicroMessenger') > -1;
+
+      if (isQQBrowser || isWeChat) {
+        // Force repaint on orientation change
+        window.addEventListener('orientationchange', function() {
+          document.documentElement.style.display = 'none';
+          setTimeout(function() {
+            document.documentElement.style.display = '';
+          }, 100);
+        });
+
+        // Fix for viewport resize issues
+        window.addEventListener('resize', function() {
+          document.documentElement.style.fontSize = window.innerWidth / 10 + 'px';
+        });
+
+        // Disable hardware acceleration on problematic devices
+        var isLowEndDevice = /Android [1-4]\./i.test(ua);
+        if (isLowEndDevice) {
+          document.body.classList.add('low-end-device');
+        }
+      }
+    })();
+  </script>
   <!-- Content - embedded directly -->
   <script>
     const siteData = {"company":{"name":"VanGATE","fullName":"VanGATE Manufacturing and Automation","tagline":"Engineered Door & Gate Systems","taglineFull":"Superior Door & Gate Systems • Engineered Precision • Full In-House CNC Fabrication","phone":"(604) 938-3588","phoneAlt":"(604) 370-0988","phoneRaw":"6049383588","email":"info@vangate.ca","address":"130-12820 Clarke Pl, Richmond, BC V6V 2H1","copyright":"2026","description":"Focused on creating commercial and residential automatic entrance solutions, VanGATE Manufacturing and Automation provides comprehensive design, manufacturing, and installation services that are tailored to suit the needs of each individual customer."},"navigation":{"links":[{"label":"Solutions","href":"#","dropdown":[{"label":"Residential","href":"#","icon":"home"},{"label":"Commercial","href":"#","icon":"building"},{"label":"Industrial","href":"#","icon":"factory"},{"divider":true},{"label":"Lift & Rotate","href":"#","icon":"elevator"},{"label":"CNC Manufacturing","href":"#","icon":"settings"}]},{"label":"Products","href":"#","dropdown":[{"label":"Gate Operators","href":"#","icon":"zap"},{"label":"Access Control","href":"#","icon":"lock"},{"label":"Parking Gates","href":"#","icon":"car"},{"label":"High-Speed Doors","href":"#","icon":"wind"},{"label":"Dock Equipment","href":"#","icon":"truck"},{"divider":true},{"label":"View All Products","href":"#","icon":"arrow-right"}]},{"label":"Services","href":"#","dropdown":[{"label":"Custom Manufacturing","href":"#","icon":"tool"},{"label":"Installation","href":"#","icon":"wrench"},{"label":"Repair & Maintenance","href":"#","icon":"settings"},{"label":"Emergency Service","href":"#","icon":"alert-circle"}]},{"label":"Projects","href":"#"},{"label":"About","href":"#","dropdown":[{"label":"About Us","href":"#","icon":"info"},{"label":"Why Choose Us","href":"#","icon":"check-circle"},{"label":"Our Team","href":"#","icon":"users"},{"label":"Careers","href":"#","icon":"briefcase"}]},{"label":"Resources","href":"#","dropdown":[{"label":"Blog","href":"#","icon":"file-text"},{"label":"FAQs","href":"#","icon":"help-circle"},{"label":"Case Studies","href":"#","icon":"book-open"},{"label":"Downloads","href":"#","icon":"download"}]}],"cta":{"label":"Get Quote","href":"#"}},"hero":{"tag":"Serving Industrial, Commercial & Residential","title":"Fully Integrated Gate & Door Manufacturer","subtitle":"From Engineering to Installation — Everything Built In-House. At VanGATE, we deliver fully integrated in-house engineering, fabrication, and automation capabilities. Serving Residential, Commercial, and Industrial clients across British Columbia.","ctas":[{"label":"Residential Solutions","href":"#","primary":true},{"label":"Commercial & Industrial","href":"#","primary":false}],"stats":[{"value":"20+","label":"Years Experience"},{"value":"1000+","label":"Projects Completed"},{"value":"100%","label":"In-House Manufacturing"}],"badge":"Licensed & Insured","rating":{"value":"5-Star Rating","source":"Google Reviews"}},"segments":{"header":{"title":"Solutions For Every Need","subtitle":"Whether you're a homeowner or a facility manager, we have the right solution for you"},"items":[{"id":"residential","icon":"home","title":"Residential","description":"Focused on creating residential automatic entrance solutions. Enhance your home's security and curb appeal with premium overhead garage doors, door-in-door garage doors, residential gates, spiral roll-up doors, and professional automation services.","items":["Overhead Garage Doors","Door-In-Door Garage Doors","Residential Gates","Spiral Roll-Up Doors","Gate Automation","Service & Repair"],"ctas":[{"label":"Get a Quote","href":"#","primary":true},{"label":"View Products","href":"#","primary":false}]},{"id":"commercial","icon":"building","title":"Commercial & Industrial","description":"High-performance commercial and industrial door systems designed for reliability, security, and maximum efficiency. From sectional doors to high-speed doors, rolling steel doors, parking gates, barrier systems, and dock equipment.","items":["Sectional Doors","High-Speed Doors","Rolling Steel Doors","Parking Gates","Barrier Systems","Dock Equipment"],"ctas":[{"label":"Request Quote","href":"#","primary":true},{"label":"View Products","href":"#","primary":false}]},{"id":"lift","icon":"elevator","title":"Lift & Rotate","description":"Advanced vertical transportation solutions for residential and commercial applications. From home elevators and compact lifts to hydraulic lift platforms, vehicle lift platforms, and turntables — engineered for safety and reliability.","items":["Home Elevator","Compact Lifts","Hydraulic Lift Platforms","Vehicle Lift Platforms","Turntables"],"ctas":[{"label":"Learn More","href":"#","primary":true},{"label":"Contact Us","href":"#","primary":false}]},{"id":"cnc","icon":"factory","title":"Advanced CNC Manufacturing","description":"State-of-the-art precision manufacturing with full in-house CNC capabilities. From laser cutting and waterjet cutting to CNC bending, routing, laser welding, and custom fabrication — delivering engineering precision for every project.","items":["Laser Cutting","Waterjet Cutting","CNC Press Brake & Bending","CNC Routing","Laser Welding","Custom Fabrication"],"ctas":[{"label":"Our Capabilities","href":"#","primary":true},{"label":"Request Quote","href":"#","primary":false}]}]},"whyUs":{"header":{"title":"Why Choose Us","description":"VanGATE is Western Canada's fully integrated gate and door manufacturer. From initial engineering to final installation, every step is handled by our team — ensuring quality, accountability, and seamless project delivery."},"items":[{"icon":"factory","title":"Vertical Integration","description":"Engineering, fabrication, and installation — all under one roof"},{"icon":"settings","title":"Custom Solutions","description":"Tailored designs to meet your specific requirements"},{"icon":"check","title":"Certified Quality","description":"Industry certifications and safety standards met"},{"icon":"wrench","title":"Service & Support","description":"24/7 emergency repairs, maintenance, and ongoing support"}]},"projects":{"header":{"title":"Featured Projects","cta":{"label":"View All Projects →","href":"#"}},"items":[{"badge":"Commercial","title":"Metro Vancouver Warehouse","description":"High-speed industrial doors and automated loading dock systems for a 50,000 sq ft distribution center.","meta":[{"label":"Industry","value":"Logistics"},{"label":"Scope","value":"12 Units"}]},{"badge":"Industrial","title":"Richmond Manufacturing Plant","description":"Custom security gates and access control systems with integrated surveillance for a food processing facility.","meta":[{"label":"Industry","value":"Manufacturing"},{"label":"Scope","value":"8 Units"}]},{"badge":"Residential","title":"West Vancouver Estate","description":"Custom automated driveway gate with intercom system and smartphone control integration.","meta":[{"label":"Industry","value":"Luxury Home"},{"label":"Scope","value":"1 Unit"}]}]},"trust":{"header":{"title":"Trusted by Clients","subtitle":"For over 20 years, VanGATE has been providing engineered gate and access solutions throughout the Greater Vancouver area."},"rating":{"score":"4.9","source":"Google Reviews"},"logos":["Industrial","Commercial","Residential","Logistics","Manufacturing"]},"cta":{"title":"Ready to Start Your Project?","subtitle":"Get a free consultation and quote. Our team is ready to help you find the perfect solution.","ctas":[{"label":"Request a Quote","href":"#","primary":true},{"label":"Call (604) 938-3588","href":"tel:6049383588","primary":false}]},"footer":{"about":"Western Canada's fully integrated gate and door manufacturer. From Engineering to Installation — Everything Built In-House.","columns":[{"title":"Solutions","links":[{"label":"Residential","href":"#"},{"label":"Commercial","href":"#"},{"label":"Industrial","href":"#"},{"label":"Custom Manufacturing","href":"#"}]},{"title":"Company","links":[{"label":"About Us","href":"#"},{"label":"Why Choose Us","href":"#"},{"label":"Projects","href":"#"},{"label":"Careers","href":"#"}]},{"title":"Resources","links":[{"label":"Blog","href":"#"},{"label":"FAQs","href":"#"},{"label":"Downloads","href":"#"},{"label":"Contact","href":"#"}]}],"social":[{"platform":"LinkedIn","href":"#"},{"platform":"Facebook","href":"#"},{"platform":"Instagram","href":"#"}]}};
