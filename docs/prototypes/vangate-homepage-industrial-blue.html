@@ -213,6 +213,7 @@
       display: flex;
       align-items: center;
       gap: 32px;
+      flex-shrink: 0;
     }
 
     .nav-phone {
@@ -246,6 +247,11 @@
       cursor: pointer;
       border: none;
       border-radius: 6px;
+      white-space: normal;
+      text-align: center;
+      justify-content: center;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .btn-primary {
@@ -360,6 +366,9 @@
       letter-spacing: 0.02em;
       text-transform: uppercase;
       margin-bottom: 24px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
 
     .hero h1 span {
@@ -1863,6 +1872,11 @@
         display: none;
       }
 
+      /* Hide phone number on mobile nav - we have mobile phone button */
+      .nav-phone {
+        display: none;
+      }
+
       /* Mobile Menu Button */
       .mobile-menu-btn {
         display: flex;
@@ -1988,8 +2002,12 @@
       }
 
       .hero {
-        padding: 120px var(--content-padding) 60px;
+        padding: 110px var(--content-padding) 60px;
         min-height: auto;
+      }
+
+      .hero-left {
+        max-width: 100%;
       }
 
       .hero h1 {
@@ -1998,16 +2016,25 @@
 
       .hero-stats {
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 16px;
+        justify-content: space-between;
       }
 
       .hero-stat {
-        flex: 1 1 calc(50% - 12px);
-        min-width: 120px;
+        flex: 1 1 calc(50% - 8px);
+        min-width: 0;
+        text-align: center;
       }
 
       .hero-stat-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .hero-image-frame {
@@ -2123,10 +2150,35 @@
 
       .nav-content {
         height: 64px;
+        gap: 12px;
+      }
+
+      .logo {
+        flex-shrink: 0;
+        padding: 4px 8px;
       }
 
       .logo img {
-        height: 32px;
+        height: 28px;
+        max-width: 100px;
+        object-fit: contain;
+      }
+
+      .nav-actions {
+        gap: 12px;
+      }
+
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .nav-phone {
+        font-size: 0.8rem;
+      }
+
+      .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
       }
 
       .hero {
@@ -2134,17 +2186,20 @@
       }
 
       .hero h1 {
-        font-size: 2.2rem;
-        line-height: 1;
+        font-size: 1.8rem;
+        line-height: 1.1;
+        word-wrap: break-word;
+        hyphens: auto;
+        overflow-wrap: break-word;
       }
 
       .hero-tag {
-        font-size: 0.7rem;
-        padding: 8px 14px;
+        font-size: 0.65rem;
+        padding: 6px 12px;
       }
 
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
 
       .hero-buttons {
@@ -2155,27 +2210,49 @@
       .hero-buttons .btn {
         width: 100%;
         justify-content: center;
+        font-size: 0.75rem;
+        padding: 12px 16px;
+        white-space: normal;
+        text-align: center;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
       }
 
       .hero-stats {
-        gap: 16px;
+        gap: 12px;
+        justify-content: space-between;
+      }
+
+      .hero-stat {
+        flex: 1 1 calc(50% - 6px);
+        text-align: center;
+        min-width: 0;
       }
 
       .hero-stat-number {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
       }
 
       .hero-stat-label {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .hero-image-frame {
-        height: 240px;
+        height: 200px;
       }
 
       .hero-carousel-nav {
         width: 36px;
         height: 36px;
+      }
+
+      .hero-carousel-label {
+        font-size: 0.65rem;
+        padding: 4px 10px;
       }
 
       .segment-header h2 {
@@ -2284,6 +2361,60 @@
       .form-submit {
         padding: 14px;
         font-size: 0.9rem;
+      }
+
+      /* Extra small screens (under 375px) */
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero-buttons .btn {
+        font-size: 0.7rem;
+        padding: 10px 12px;
+      }
+
+      .hero-stat-number {
+        font-size: 1.3rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.6rem;
+      }
+
+      .segment-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .segment-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .whyus-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .projects-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .contact-info h2 {
+        font-size: 1.6rem;
+      }
+
+      .testimonials-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
+
+      .cta-buttons {
+        padding: 0 10px;
       }
 
       .footer {
