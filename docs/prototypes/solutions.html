@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions - VanGATE Manufacturing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --primary-light: #3B82F6;
+      --secondary: #0F172A;
+      --surface: #1E293B;
+      --surface-2: #334155;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --border: #334155;
+      --accent: #60A5FA;
+      --success: #10B981;
+      --font-heading: 'Bebas Neue', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-body-alt: 'Source Sans 3', sans-serif;
+      --max-width: 1440px;
+      --content-padding: 80px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 0 var(--content-padding);
+    }
+
+    .nav-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links > li {
+      position: relative;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 28px 20px;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-phone {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-phone:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 160px var(--content-padding) 80px;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--surface) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
+    }
+
+    .page-hero-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid var(--primary);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      line-height: 1.1;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 span { color: var(--primary); }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .page-hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .page-hero-breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .page-hero-breadcrumb a:hover { color: var(--primary); }
+
+    /* Solutions Overview */
+    .solutions-overview {
+      padding: 80px var(--content-padding);
+      background: var(--surface);
+    }
+
+    .solutions-overview-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .solutions-nav-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+
+    .solution-tab {
+      padding: 14px 28px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .solution-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .solution-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .solution-detail {
+      display: none;
+    }
+
+    .solution-detail.active {
+      display: block;
+    }
+
+    .solution-detail-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .solution-icon-large {
+      font-size: 4rem;
+      flex-shrink: 0;
+    }
+
+    .solution-title-area h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .solution-title-area p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    .solution-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .solution-product-card {
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .solution-product-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .solution-product-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .solution-product-card > p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .solution-product-card ul {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .solution-product-card li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .solution-product-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .solution-product-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Why VanGATE */
+    .why-vangate-section {
+      padding: 80px var(--content-padding);
+      background: var(--secondary);
+    }
+
+    .why-vangate-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .why-vangate-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .why-vangate-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .why-vangate-header h2 span { color: var(--primary); }
+
+    .why-vangate-header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .why-vangate-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .why-vangate-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .why-vangate-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .why-vangate-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .why-vangate-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .why-vangate-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 80px var(--content-padding);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-section .btn-outline {
+      border-color: white;
+      color: white;
+    }
+
+    .cta-section .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--secondary);
+      padding: 64px var(--content-padding) 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 16px;
+      background: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 360px;
+    }
+
+    .footer-links h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 48px auto 0;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: var(--surface);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .why-vangate-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --content-padding: 24px;
+      }
+
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .solution-detail-header {
+        flex-direction: column;
+      }
+
+      .why-vangate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="vangate-homepage-industrial-blue.html" class="logo"><img src="logo (1).png" alt="VanGATE Logo"></a>
+      <ul class="nav-links">
+        <li><a href="solutions.html" style="color: var(--primary);">Solutions</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="tel:6049383588" class="nav-phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (604) 938-3588
+        </a>
+        <a href="#contact" class="btn btn-primary">Get Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <span class="page-hero-tag">Our Solutions</span>
+      <h1>Complete Entrance <span>Solutions</span></h1>
+      <p>From residential gates to industrial door systems, VanGATE delivers engineered solutions tailored to your specific needs. Every project benefits from our vertically integrated manufacturing approach.</p>
+      <div class="page-hero-breadcrumb">
+        <a href="vangate-homepage-industrial-blue.html">Home</a>
+        <span>/</span>
+        <span>Solutions</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Overview -->
+  <section class="solutions-overview">
+    <div class="solutions-overview-content">
+      <div class="solutions-nav-tabs">
+        <button class="solution-tab active" data-tab="residential">🏠 Residential</button>
+        <button class="solution-tab" data-tab="commercial">🏢 Commercial</button>
+        <button class="solution-tab" data-tab="lift">🛗 Lift & Rotate</button>
+        <button class="solution-tab" data-tab="cnc">🏭 CNC Manufacturing</button>
+      </div>
+
+      <!-- Residential -->
+      <div class="solution-detail active" id="residential">
+        <div class="solution-detail-header">
+          <div class="solution-icon-large">🏠</div>
+          <div class="solution-title-area">
+            <h2>Residential Solutions</h2>
+            <p>Enhance your home's security, convenience, and curb appeal with our premium residential gate and door systems.</p>
+          </div>
+        </div>
+        <div class="solution-products-grid">
+          <div class="solution-product-card">
+            <div class="product-icon">🚪</div>
+            <h3>Overhead Garage Doors</h3>
+            <p>Premium steel and wood garage doors with advanced insulation and smooth operation.</p>
+            <ul>
+              <li>R-Value up to 18.5 insulation</li>
+              <li>Multiple panel styles available</li>
+              <li>Smart home integration ready</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🚗</div>
+            <h3>Residential Gates</h3>
+            <p>Custom designed automated driveway gates for enhanced security and convenience.</p>
+            <ul>
+              <li>Swing and slide gate options</li>
+              <li>Solar power compatible</li>
+              <li>Smartphone control ready</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🔄</div>
+            <h3>Door-In-Door Garage Doors</h3>
+            <p>Innovative dual-panel design with built-in pedestrian access door.</p>
+            <ul>
+              <li>Space-saving design</li>
+              <li>Enhanced ventilation options</li>
+              <li>Custom finishes available</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">⚙️</div>
+            <h3>Gate Automation</h3>
+            <p>Retrofit or new installation of gate automation systems for existing gates.</p>
+            <ul>
+              <li>All major brands compatible</li>
+              <li>Battery backup included</li>
+              <li>Safety sensors standard</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial -->
+      <div class="solution-detail" id="commercial">
+        <div class="solution-detail-header">
+          <div class="solution-icon-large">🏢</div>
+          <div class="solution-title-area">
+            <h2>Commercial & Industrial</h2>
+            <p>High-performance door and gate systems designed for reliability, security, and operational efficiency.</p>
+          </div>
+        </div>
+        <div class="solution-products-grid">
+          <div class="solution-product-card">
+            <div class="product-icon">🚪</div>
+            <h3>Sectional Doors</h3>
+            <p>Heavy-duty insulated sectional doors for warehouses, loading docks, and commercial facilities.</p>
+            <ul>
+              <li>Steel and aluminum options</li>
+              <li>High cycle springs standard</li>
+              <li>Custom sizes up to 40ft wide</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">💨</div>
+            <h3>High-Speed Doors</h3>
+            <p>Fast-acting doors that improve traffic flow, climate control, and workplace safety.</p>
+            <ul>
+              <li>Open speeds up to 80"/sec</li>
+              <li>Over 1 million cycle rated</li>
+              <li>Soft-edge safety technology</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🔒</div>
+            <h3>Rolling Steel Doors</h3>
+            <p>Secure and durable rolling steel doors for commercial and industrial applications.</p>
+            <ul>
+              <li>Fire-rated options available</li>
+              <li>Manual or motor operated</li>
+              <li>Minimal headroom required</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🚦</div>
+            <h3>Parking Gates</h3>
+            <p>Access control systems for parking lots, garages, and secure facilities.</p>
+            <ul>
+              <li>Ticket and RFID systems</li>
+              <li>Revenue control ready</li>
+              <li>Integration with security systems</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lift -->
+      <div class="solution-detail" id="lift">
+        <div class="solution-detail-header">
+          <div class="solution-icon-large">🛗</div>
+          <div class="solution-title-area">
+            <h2>Lift & Rotate Solutions</h2>
+            <p>Advanced vertical transportation solutions for residential and commercial applications.</p>
+          </div>
+        </div>
+        <div class="solution-products-grid">
+          <div class="solution-product-card">
+            <div class="product-icon">🏠</div>
+            <h3>Home Elevators</h3>
+            <p>Elegant residential elevators that add value and accessibility to your home.</p>
+            <ul>
+              <li>Compact footprint design</li>
+              <li>Low power consumption</li>
+              <li>Custom cabin finishes</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">📦</div>
+            <h3>Vehicle Lift Platforms</h3>
+            <p>Mechanical and hydraulic lifts for vehicle storage and maintenance facilities.</p>
+            <ul>
+              <li>2-post and 4-post options</li>
+              <li>Capacity up to 18,000 lbs</li>
+              <li>Commercial grade components</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🔄</div>
+            <h3>Turntables</h3>
+            <p>Rotating platforms for easy vehicle maneuvering in tight spaces.</p>
+            <ul>
+              <li>Indoor and outdoor models</li>
+              <li>Remote control operation</li>
+              <li>Weather-resistant options</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CNC -->
+      <div class="solution-detail" id="cnc">
+        <div class="solution-detail-header">
+          <div class="solution-icon-large">🏭</div>
+          <div class="solution-title-area">
+            <h2>CNC Manufacturing</h2>
+            <p>State-of-the-art precision manufacturing with full in-house capabilities.</p>
+          </div>
+        </div>
+        <div class="solution-products-grid">
+          <div class="solution-product-card">
+            <div class="product-icon">⚡</div>
+            <h3>Laser Cutting</h3>
+            <p>High-precision laser cutting for metal fabrication up to 1" thickness.</p>
+            <ul>
+              <li>5' x 10' bed size</li>
+              <li>Nitrogen assist gas option</li>
+              <li>Complex geometries supported</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">💧</div>
+            <h3>Waterjet Cutting</h3>
+            <p>Cold cutting technology for materials that can't handle heat.</p>
+            <ul>
+              <li>Up to 6" thick materials</li>
+              <li>No heat-affected zones</li>
+              <li>Multiple material compatibility</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🔧</div>
+            <h3>CNC Bending</h3>
+            <p>Precision press brake forming for complex metal shapes.</p>
+            <ul>
+              <li>220-ton capacity</li>
+              <li>Back gauge automation</li>
+              <li>CNC crowning system</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+          <div class="solution-product-card">
+            <div class="product-icon">🔥</div>
+            <h3>Laser Welding</h3>
+            <p>Advanced welding for precision fabrication and repair.</p>
+            <ul>
+              <li>Minimal heat distortion</li>
+              <li>High weld quality</li>
+              <li>Automated welding cells</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why VanGATE -->
+  <section class="why-vangate-section">
+    <div class="why-vangate-content">
+      <div class="why-vangate-header">
+        <h2>Why Choose <span>VanGATE</span></h2>
+        <p>We're more than a supplier - we're your partner from design through installation</p>
+      </div>
+      <div class="why-vangate-grid">
+        <div class="why-vangate-card">
+          <div class="why-vangate-icon">🏭</div>
+          <h3>100% In-House</h3>
+          <p>Engineering, fabrication, and installation - all under one roof for complete quality control.</p>
+        </div>
+        <div class="why-vangate-card">
+          <div class="why-vangate-icon">📏</div>
+          <h3>Custom Engineering</h3>
+          <p>Every project is custom-designed by our engineering team to fit your exact specifications.</p>
+        </div>
+        <div class="why-vangate-card">
+          <div class="why-vangate-icon">🛡️</div>
+          <h3>Warranty</h3>
+          <p>Comprehensive warranty on all products and installation work for your peace of mind.</p>
+        </div>
+        <div class="why-vangate-card">
+          <div class="why-vangate-icon">🔧</div>
+          <h3>Lifetime Support</h3>
+          <p>24/7 emergency service and ongoing maintenance programs to keep your systems running.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Get Started?</h2>
+      <p>Contact us today for a free consultation and customized quote for your project.</p>
+      <div class="cta-buttons">
+        <a href="vangate-homepage-industrial-blue.html#contact" class="btn btn-primary">Request a Quote</a>
+        <a href="tel:6049383588" class="btn btn-outline">Call (604) 938-3588</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="logo (1).png" alt="VanGATE Logo">
+        <p>Western Canada's fully integrated gate and door manufacturer. From Engineering to Installation — Everything Built In-House.</p>
+        <div class="footer-social">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#">Residential</a></li>
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">Industrial</a></li>
+          <li><a href="#">CNC Manufacturing</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:6049383588">(604) 938-3588</a></li>
+          <li><a href="mailto:info@vangate.ca">info@vangate.ca</a></li>
+          <li><a href="#">130-12820 Clarke Pl</a></li>
+          <li><a href="#">Richmond, BC V6V 2H1</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 VanGATE Manufacturing and Automation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Solution tabs
+    document.querySelectorAll('.solution-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.dataset.tab;
+
+        // Update active tab
+        document.querySelectorAll('.solution-tab').forEach(function(t) {
+          t.classList.remove('active');
+        });
+        this.classList.add('active');
+
+        // Update active content
+        document.querySelectorAll('.solution-detail').forEach(function(detail) {
+          detail.classList.remove('active');
+        });
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

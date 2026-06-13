@@ -1263,6 +1263,405 @@
       background: rgba(255, 255, 255, 0.15);
     }
 
+    /* ========== CONTACT FORM ========== */
+    .contact-section {
+      padding: 80px var(--content-padding);
+      background: var(--secondary);
+    }
+
+    .contact-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .contact-info h2 span { color: var(--primary); }
+
+    .contact-info > p {
+      font-family: var(--font-body-alt);
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-item-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-item-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-item-value {
+      font-size: 1rem;
+      color: white;
+      font-weight: 500;
+    }
+
+    .contact-item-value a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item-value a:hover { color: var(--primary); }
+
+    .contact-form-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .contact-form h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .form-group select option {
+      background: var(--surface);
+      color: white;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .form-submit:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonials-section {
+      padding: 80px var(--content-padding);
+      background: linear-gradient(180deg, var(--secondary) 0%, var(--surface) 100%);
+    }
+
+    .testimonials-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .testimonials-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .testimonials-header h2 span { color: var(--primary); }
+
+    .testimonials-header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .testimonials-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-card {
+      flex: 0 0 calc(33.333% - 20px);
+      margin: 0 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.3;
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-body-alt);
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      padding-top: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .testimonial-info h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-info span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .testimonial-rating {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      color: #FBBF24;
+      font-size: 0.9rem;
+    }
+
+    .testimonials-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .testimonials-nav button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .testimonials-nav button:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .testimonials-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .testimonials-dots button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .testimonials-dots button.active {
+      background: var(--primary);
+      width: 28px;
+      border-radius: 5px;
+    }
+
+    /* ========== PARTNERS ========== */
+    .partners-section {
+      padding: 60px var(--content-padding);
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .partners-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .partners-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .partners-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .partners-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .partner-logo {
+      width: 140px;
+      height: 60px;
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all 0.3s;
+      padding: 12px 20px;
+    }
+
+    .partner-logo:hover {
+      border-color: var(--primary);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
     /* ========== FOOTER ========== */
     .footer {
       background: var(--secondary);
@@ -1843,10 +2242,147 @@
       startAutoplay();
     }
 
+    // ========== TESTIMONIALS CAROUSEL ==========
+    var testimonialsTrack = null;
+    var testimonialsDotsContainer = null;
+    var currentTestimonial = 0;
+    var testimonialsAutoplay = null;
+
+    function initTestimonials() {
+      testimonialsTrack = document.getElementById('testimonialsTrack');
+      testimonialsDotsContainer = document.getElementById('testimonialsDots');
+
+      if (!testimonialsTrack || !testimonialsDotsContainer) return;
+
+      var totalTestimonials = testimonialsTrack.children.length;
+      var visibleSlides = 3; // Show 3 at a time on desktop
+
+      // Create dots
+      var numDots = Math.ceil(totalTestimonials / visibleSlides);
+      testimonialsDotsContainer.innerHTML = '';
+      for (var i = 0; i < numDots; i++) {
+        var btn = document.createElement('button');
+        btn.className = i === 0 ? 'active' : '';
+        btn.addEventListener('click', function(idx) {
+          return function() {
+            goToTestimonial(idx * visibleSlides);
+            resetTestimonialsAutoplay();
+          };
+        }(i));
+        testimonialsDotsContainer.appendChild(btn);
+      }
+
+      // Navigation buttons
+      document.getElementById('testimonialsPrev').addEventListener('click', function() {
+        prevTestimonial();
+        resetTestimonialsAutoplay();
+      });
+
+      document.getElementById('testimonialsNext').addEventListener('click', function() {
+        nextTestimonial();
+        resetTestimonialsAutoplay();
+      });
+
+      // Update carousel on resize
+      window.addEventListener('resize', function() {
+        updateTestimonialPosition(false);
+      });
+
+      // Start autoplay
+      startTestimonialsAutoplay();
+    }
+
+    function goToTestimonial(index) {
+      if (!testimonialsTrack) return;
+
+      var totalTestimonials = testimonialsTrack.children.length;
+      var visibleSlides = window.innerWidth < 768 ? 1 : 3;
+
+      if (index < 0) index = totalTestimonials - visibleSlides;
+      if (index > totalTestimonials - visibleSlides) index = 0;
+
+      currentTestimonial = index;
+      updateTestimonialPosition(true);
+      updateTestimonialDots();
+    }
+
+    function nextTestimonial() {
+      var totalTestimonials = testimonialsTrack.children.length;
+      var visibleSlides = window.innerWidth < 768 ? 1 : 3;
+      goToTestimonial(currentTestimonial + visibleSlides);
+    }
+
+    function prevTestimonial() {
+      var totalTestimonials = testimonialsTrack.children.length;
+      var visibleSlides = window.innerWidth < 768 ? 1 : 3;
+      goToTestimonial(currentTestimonial - visibleSlides);
+    }
+
+    function updateTestimonialPosition(animate) {
+      if (!testimonialsTrack) return;
+      var visibleSlides = window.innerWidth < 768 ? 1 : 3;
+      var slideWidth = testimonialsTrack.children[0].offsetWidth + 20; // Include margin
+      var offset = currentTestimonial * slideWidth;
+
+      testimonialsTrack.style.transition = animate ? 'transform 0.5s ease' : 'none';
+      testimonialsTrack.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    function updateTestimonialDots() {
+      if (!testimonialsDotsContainer) return;
+      var dots = testimonialsDotsContainer.children;
+      var visibleSlides = window.innerWidth < 768 ? 1 : 3;
+      var activeDot = Math.floor(currentTestimonial / visibleSlides);
+
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = i === activeDot ? 'active' : '';
+      }
+    }
+
+    function startTestimonialsAutoplay() {
+      if (testimonialsAutoplay) clearInterval(testimonialsAutoplay);
+      testimonialsAutoplay = setInterval(nextTestimonial, 5000);
+    }
+
+    function resetTestimonialsAutoplay() {
+      startTestimonialsAutoplay();
+    }
+
+    // ========== CONTACT FORM ==========
+    function initContactForm() {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form data
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          data[key] = value;
+        });
+
+        // Show success message (in real implementation, send to server)
+        var submitBtn = form.querySelector('.form-submit');
+        var originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitted! ✓';
+        submitBtn.style.background = '#10B981';
+
+        setTimeout(function() {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          form.reset();
+        }, 3000);
+      });
+    }
+
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', function() {
       renderContent(siteData);
       initCarousel();
+      initTestimonials();
+      initContactForm();
     });
   </script>
 </head>
@@ -1955,6 +2491,201 @@
       </div>
       <div class="trust-right">
         <div class="trust-logos"><!-- Loaded from JSON --></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="partners-section">
+    <div class="partners-content">
+      <div class="partners-header">
+        <h3>Trusted by Leading Brands</h3>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-logo">Schneider Electric</div>
+        <div class="partner-logo">ABB</div>
+        <div class="partner-logo">Siemens</div>
+        <div class="partner-logo">Honeywell</div>
+        <div class="partner-logo">Delta</div>
+        <div class="partner-logo">Somfy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="testimonials-content">
+      <div class="testimonials-header">
+        <h2>What Our <span>Clients Say</span></h2>
+        <p>Real feedback from satisfied customers across British Columbia</p>
+      </div>
+      <div class="testimonials-carousel" id="testimonialsCarousel">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-text">VanGATE installed our commercial security gates and the quality is outstanding. Professional installation team, on-time delivery, and excellent after-sales service. Highly recommended!</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MJ</div>
+              <div class="testimonial-info">
+                <h4>Michael Johnson</h4>
+                <span>Operations Manager, Metro Vancouver Logistics</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-text">The residential gate automation system they installed works flawlessly. The smartphone integration is convenient and the build quality gives us peace of mind about security.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SC</div>
+              <div class="testimonial-info">
+                <h4>Sarah Chen</h4>
+                <span>Homeowner, West Vancouver</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-text">We needed high-speed doors for our manufacturing facility. VanGATE delivered a custom solution that improved our workflow efficiency significantly. Great engineering team!</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">DP</div>
+              <div class="testimonial-info">
+                <h4>David Park</h4>
+                <span>Plant Director, Richmond Manufacturing</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-text">Exceptional craftsmanship on our custom driveway gate. The design perfectly complements our property, and the automated system has been reliable for over 2 years now.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">LW</div>
+              <div class="testimonial-info">
+                <h4>Lisa Wang</h4>
+                <span>Homeowner, Surrey</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-text">VanGATE's dock equipment installation was seamless. Their team coordinated perfectly with our construction schedule and delivered a turnkey solution that exceeded expectations.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RB</div>
+              <div class="testimonial-info">
+                <h4>Robert Brown</h4>
+                <span>Warehouse Manager, BC Distribution Center</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-text">The parking gate system has been running perfectly since installation. Minimal maintenance required and their emergency repair service is always responsive when we need them.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AT</div>
+              <div class="testimonial-info">
+                <h4>Amanda Thompson</h4>
+                <span>Property Manager, Downtown Vancouver</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials-nav">
+        <button id="testimonialsPrev">←</button>
+        <button id="testimonialsNext">→</button>
+      </div>
+      <div class="testimonials-dots" id="testimonialsDots"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2>Get In <span>Touch</span></h2>
+        <p>Ready to start your project? Contact us today for a free consultation and quote. Our team is here to help you find the perfect solution.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Address</span>
+              <span class="contact-item-value">130-12820 Clarke Pl, Richmond, BC V6V 2H1</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Phone</span>
+              <span class="contact-item-value"><a href="tel:6049383588">(604) 938-3588</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Email</span>
+              <span class="contact-item-value"><a href="mailto:info@vangate.ca">info@vangate.ca</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Business Hours</span>
+              <span class="contact-item-value">Mon-Fri: 8:00 AM - 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrapper">
+        <form class="contact-form" id="contactForm">
+          <h3>Request a Free Quote</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(604) 555-0123" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Type *</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="industrial">Industrial</option>
+                <option value="repair">Repair & Maintenance</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="timeline">Project Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select timeline</option>
+                <option value="immediate">Immediate (Within 1 month)</option>
+                <option value="soon">Soon (1-3 months)</option>
+                <option value="planning">Planning (3-6 months)</option>
+                <option value="future">Future Project</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project requirements, location, and any specific needs..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit Request</button>
+        </form>
       </div>
     </div>
   </section>
